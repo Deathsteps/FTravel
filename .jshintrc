@@ -1,0 +1,11 @@
+{
+	"node"    : true,
+	"es5"     : true,
+	"mocha"   : true,
+	"newcap"  : true,
+	"expr"    : true,
+	"nonew"   : true,
+	"latedef" : true, 
+	"forin"   : false,
+	"strict"  : false
+}

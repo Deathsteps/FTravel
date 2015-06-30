@@ -1,0 +1,28 @@
+.clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+.clearfix{
+	.clearfix();
+}
+
+
+.invisible {
+  visibility: hidden;
+}
+.hidden {
+  display: none !important;
+}
+
+.transition(@property: all, @duration: 0.2s, @timing-function: ease-in-out, @delay: 0){
+	transition: @property @duration @timing-function @delay;
+	-moz-transition: @property @duration @timing-function @delay; /* Firefox 4 */
+	-webkit-transition: @property @duration @timing-function @delay; /* Safari 和 Chrome */
+	-o-transition: @property @duration @timing-function @delay; /* Opera */
+}

@@ -1,0 +1,780 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"prod",
+				"prod"
+			],
+			[
+				"hotel",
+				"hotelRooms"
+			],
+			[
+				"room",
+				"roomData"
+			],
+			[
+				"sea",
+				"search"
+			],
+			[
+				"hote",
+				"hotelData"
+			],
+			[
+				"Hotel",
+				"HotelID"
+			],
+			[
+				"ro",
+				"roomData"
+			],
+			[
+				"Che",
+				"CheckOutDate"
+			],
+			[
+				"Hote",
+				"HotelInfo"
+			],
+			[
+				"HOtel",
+				"HotelInfo"
+			],
+			[
+				"fli",
+				"flightData"
+			],
+			[
+				"Dep",
+				"DepartInfo"
+			],
+			[
+				"flig",
+				"flightArr"
+			],
+			[
+				"se",
+				"segment"
+			],
+			[
+				"pa",
+				"package"
+			],
+			[
+				"pro",
+				"prod"
+			],
+			[
+				"cal",
+				"calendar"
+			],
+			[
+				"cla",
+				"calendars"
+			],
+			[
+				"data",
+				"database"
+			],
+			[
+				"ho",
+				"hotelRooms"
+			],
+			[
+				"Ho",
+				"HotelID"
+			],
+			[
+				"req",
+				"requestHotels"
+			],
+			[
+				"requ",
+				"requestHotels"
+			],
+			[
+				"hot",
+				"hotels"
+			],
+			[
+				"T",
+				"TripSegments"
+			],
+			[
+				"tim",
+				"timestamp"
+			],
+			[
+				"summ",
+				"summary"
+			],
+			[
+				"Prod",
+				"ProductID"
+			],
+			[
+				"sp",
+				"spider"
+			],
+			[
+				"call",
+				"callback"
+			],
+			[
+				"ca",
+				"callback"
+			],
+			[
+				"po",
+				"postData"
+			],
+			[
+				"sear",
+				"searchRooms"
+			],
+			[
+				"search",
+				"searchHotels"
+			],
+			[
+				"hea",
+				"headData"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"pad",
+				"padding-block"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"padding",
+				"padding-icon"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"cl",
+				"clearfix"
+			],
+			[
+				"get",
+				"getChosenOne"
+			],
+			[
+				"_cho",
+				"_chosenRoomId"
+			],
+			[
+				"roo",
+				"roomId"
+			],
+			[
+				"Room",
+				"RoomID"
+			],
+			[
+				"sele",
+				"selected"
+			],
+			[
+				"btn",
+				"btn_selected"
+			],
+			[
+				"sel",
+				"selected"
+			],
+			[
+				"new",
+				"newValue"
+			],
+			[
+				"a",
+				"attrs"
+			],
+			[
+				"pri",
+				"price"
+			],
+			[
+				"price",
+				"priceTag"
+			],
+			[
+				"el",
+				"element"
+			],
+			[
+				"ar",
+				"angular"
+			],
+			[
+				"sc",
+				"scope"
+			],
+			[
+				"fi",
+				"fileSize"
+			],
+			[
+				"file",
+				"filename"
+			],
+			[
+				"u",
+				"urlInfo"
+			],
+			[
+				"_",
+				"_chosen"
+			],
+			[
+				"rom",
+				"roomService"
+			],
+			[
+				"script",
+				"scripts"
+			],
+			[
+				"for",
+				"for	for (…) {…} (Improved Native For-Loop)"
+			],
+			[
+				"m",
+				"margin"
+			],
+			[
+				"un",
+				"units"
+			],
+			[
+				"val",
+				"value"
+			],
+			[
+				"me",
+				"method"
+			],
+			[
+				"style",
+				"styleValue"
+			],
+			[
+				"bor",
+				"border-radius"
+			],
+			[
+				"back",
+				"background-image"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app.js",
+			"settings":
+			{
+				"buffer_size": 929,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "services/product.js",
+			"settings":
+			{
+				"buffer_size": 345,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "routes/product.js",
+			"settings":
+			{
+				"buffer_size": 349,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "test/productServiceTest.js",
+			"settings":
+			{
+				"buffer_size": 375,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 347.0,
+		"last_filter": "Package Control: ",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/xujie/Documents/Github/FTravel",
+		"/Users/xujie/Documents/Github/FTravel/routes",
+		"/Users/xujie/Documents/Github/FTravel/services",
+		"/Users/xujie/Documents/Github/FTravel/test"
+	],
+	"file_history":
+	[
+		"/Users/xujie/Documents/Github/FTravel/tests/productServiceTest",
+		"/Users/xujie/Documents/Github/FTravel/routes/product.js",
+		"/Users/xujie/Documents/Github/FTravel/package.json",
+		"/Users/xujie/Documents/Github/FTravel/package1.json",
+		"/Users/xujie/Documents/Github/FTravel/middlewares/errorHandlers",
+		"/Users/xujie/Documents/Github/FTravel/views/product.ejs",
+		"/Users/xujie/Documents/Github/FTravel/.gitignore",
+		"/Users/xujie/Documents/Github/FTravel/.jshintrc",
+		"/Users/xujie/Documents/Github/FTravel/app.js",
+		"/Users/xujie/Documents/mvc/React/scripts/app/components/Selector.js",
+		"/Users/xujie/Documents/mvc/React/scripts/app/components/Room.js",
+		"/Users/xujie/Documents/mvc/React/scripts/app/components/SelectButton.js",
+		"/Users/xujie/Documents/mvc/React/scripts/app/components/RoomList.js",
+		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/SublimeLinter/Default (OSX).sublime-keymap",
+		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/Alignment/Default (OSX).sublime-keymap",
+		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/xujie/Documents/Github/FTravel/other/spider.js",
+		"/Users/xujie/Documents/Github/FTravel/other/start.js",
+		"/Users/xujie/Documents/Things",
+		"/Users/xujie/Documents/mvc/FreeTravel/prototypes/list.html",
+		"/Users/xujie/Documents/mvc/FreeTravel/prototypes/detail.html",
+		"/Users/xujie/Documents/mvc/FreeTravel/other/spider.js",
+		"/Users/xujie/Documents/mvc/FreeTravel/other/start.js",
+		"/Users/xujie/Documents/mvc/FreeTravel/prototypes/styles/site.less",
+		"/Users/xujie/Documents/mvc/FreeTravel/prototypes/styles/mixins.less",
+		"/Users/xujie/Documents/mvc/FreeTravel/prototypes/styles/variables.less",
+		"/Users/xujie/Documents/mvc/FreeTravel/package.json",
+		"/Users/xujie/Documents/mvc/FreeTravel/other/db.js",
+		"/Users/xujie/Documents/mvc/FreeTravel/other/data.json",
+		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/JsFormat/Default (OSX).sublime-keymap",
+		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/Terminal/Default (OSX).sublime-keymap",
+		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/xujie/Documents/mongodb/README",
+		"/Users/xujie/Documents/mvc/FreeTravel/FreeTravel.sublime-workspace",
+		"/Users/xujie/Documents/mvc/Plan.md",
+		"/Users/xujie/Documents/Schedules",
+		"/Users/xujie/Documents/mvc/Angular/scripts/directives/selector.html",
+		"/Users/xujie/Documents/mvc/Angular/scripts/services/roomService.js",
+		"/Users/xujie/Documents/mvc/Angular/styles/site.less",
+		"/Users/xujie/Documents/mvc/Angular/scripts/controllers/priceCtrl.js",
+		"/Users/xujie/Documents/mvc/Angular/scripts/directives/priceTag.js",
+		"/Users/xujie/Documents/mvc/Angular/scripts/directives/selector.js",
+		"/Users/xujie/Documents/mvc/Angular/scripts/controllers/roomCtrl.js",
+		"/Users/xujie/Documents/mvc/Angular/scripts/services/priceService.js",
+		"/Users/xujie/Documents/mvc/Angular/scripts/filters/price.js",
+		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/User/Base File.sublime-settings",
+		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/Alignment/Base File.sublime-settings",
+		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/xujie/Documents/mvc/Angular/scripts/services/hotelService.js",
+		"/Users/xujie/Documents/mvc/server.js",
+		"/Users/xujie/Documents/mvc/Angular/index.html",
+		"/Users/xujie/Documents/mvc/Angular/scripts/controllers/hotelCtrl.js",
+		"/Users/xujie/Documents/mvc/Angular/scripts/app.js",
+		"/Users/xujie/Downloads/package_order.js",
+		"/Users/xujie/Documents/Github/package.json",
+		"/Volumes/Git 2.2.1 Mavericks Intel Universal/setup git PATH for non-terminal programs.sh",
+		"/Users/xujie/Downloads/view",
+		"/Users/xujie/Downloads/Develop A Website",
+		"/Users/xujie/Downloads/A",
+		"/Users/xujie/Downloads/WC/public/prd.txt",
+		"/Users/xujie/Downloads/WC/public/css/list.css",
+		"/untitled",
+		"/Users/xujie/Downloads/IPZ-050",
+		"/Users/xujie/Downloads/茶底世界",
+		"/Users/xujie/Downloads/30/02-three_days_to_see.txt",
+		"/Users/xujie/Downloads/800.txt",
+		"/Users/xujie/Downloads/800",
+		"/Users/xujie/Downloads/android/android.css",
+		"/Users/xujie/Downloads/Todolist/index.html",
+		"/Users/xujie/Downloads/Todolist/css/site.css",
+		"/Users/xujie/Documents/Something",
+		"/Users/xujie/Downloads/Social Problems",
+		"/Users/xujie/Downloads/Beijing Choking on Air Pollution",
+		"/Users/xujie/Downloads/05",
+		"/Users/xujie/Downloads/04",
+		"/Users/xujie/Downloads/03",
+		"/Users/xujie/Downloads/02",
+		"/Users/xujie/Downloads/01",
+		"/Users/xujie/Downloads/default.lrc",
+		"/Users/xujie/Documents/Three things I'm proud",
+		"/Users/xujie/Downloads/test.html",
+		"/Applications/goagent/local/proxy.ini",
+		"/Applications/Sublime Text.app/Contents/MacOS/changelog.txt",
+		"/Users/xujie/Downloads/--------.txt",
+		"/Users/xujie/Downloads/Real/js/transform.js",
+		"/Users/xujie/Downloads/Real/index.html",
+		"/Users/xujie/Downloads/Real/js/jquery2.js",
+		"/Users/xujie/Downloads/Real/css/site.css"
+	],
+	"find":
+	{
+		"height": 46.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/Users/xujie/Documents/mvc/FreeTravel",
+			"/Users/xujie/Documents/mvc/Angular/scripts/controllers",
+			"/Users/xujie/Documents/mvc/Angular/scripts"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"');\n",
+			"routes",
+			"users",
+			"path",
+			"PackagePrice",
+			"detail",
+			"requestDetail",
+			"data",
+			"postData",
+			";\n",
+			"SDPSummaryInfo",
+			"index",
+			"{\n",
+			"summery",
+			");\n",
+			"()",
+			"fs",
+			"09031022210027666988",
+			"url",
+			"{\n",
+			"div",
+			"h1",
+			"html",
+			"link",
+			"element",
+			"_chosen",
+			"_chosenRoomId",
+			"updateChosenOne",
+			"_data",
+			"updateChosenOne",
+			"_chosen",
+			"event",
+			"$broadcast",
+			"className",
+			"size",
+			"hotelId",
+			"exports",
+			"require",
+			"defined",
+			"script",
+			"elems",
+			"initValidate",
+			"手机",
+			"impress",
+			"on",
+			"collection-list",
+			"forEach",
+			"each",
+			"units",
+			"makeArray",
+			"else",
+			"3d",
+			";\n",
+			"script",
+			"padding"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"package",
+			"requestPackage",
+			"class",
+			"ng-class",
+			"forEach"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": true,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 929,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								839,
+								839
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 58.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "services/product.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 345,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								335,
+								335
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "routes/product.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 349,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								313,
+								313
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "test/productServiceTest.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 375,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								212,
+								212
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "FreeTravel.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"prototypes/detail.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 216.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

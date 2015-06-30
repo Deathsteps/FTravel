@@ -1,0 +1,141 @@
+@import "reset.css";
+@import "variables.less";
+@import "mixins.less";
+
+/* ----------Components--------- */
+.btn {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid transparent;
+  white-space: nowrap;
+
+  &:active {
+    outline: 0;
+    background-image: none;
+  }
+
+  &.disabled {
+  	background: @color-disable;
+  	color: white;
+  }
+
+}
+
+.price {
+	color: @color-widget;
+	font-size: @font-size-emphasis;
+
+	dfn{
+		margin-right: @padding-icon;
+		font-size: @font-size-small;
+	}
+}
+
+h1 {
+	font-weight: bold;
+	font-size: @font-size-h1;
+}
+
+h3 {
+	font-size: @font-size-h3;
+}
+
+h4 {
+	font-size: @font-size-h4;
+}
+
+/* ----------Site--------- */
+
+header {
+	background: @color-main;
+	color: white;
+
+	h1, .back, .home{
+		display: inline-block;
+		height: 44px;
+		line-height: 44px;
+		text-align: center;
+	}
+
+	h1 {
+		width: 100%;
+	}
+
+	.back, .home{
+		position: absolute;
+		top: 0;
+		width: 44px;
+		text-transform: uppercase;
+	}
+	.back {
+		left: 0;
+	}
+	.home {
+		right: 0;
+	}
+}
+
+/*-----------Page------------*/
+
+.list_page {
+	background-color: @color-background;
+
+	section {
+		margin-bottom: @padding-block;
+		padding: 0 @padding-side;
+		background-color: white;
+	}
+
+	.ads {
+		height: 120px;
+		line-height: 120px;
+		text-align: center;
+		background-color: lighten(@color-widget, 20%);
+		color: white;
+		font-size: @font-size-h1;
+	}
+
+	.lnk_custom {
+		line-height: 44px;
+		font-size: @font-size-emphasis;
+	}
+
+	.recommend {
+		padding-top: @padding-item;
+	}
+
+	.product {
+
+		display: flex;
+		padding: @padding-item 0;
+
+		.pic {
+			width: 80px;
+			height: 70px;
+
+			img {
+				width: 80px;
+				height: 70px;
+			}
+		}
+
+		.detail {
+
+			margin-left: 20px;
+			padding-top: @padding-icon;
+
+			h3 {
+				margin-bottom: @padding-icon;
+				font-size: @font-size-h3;
+			}
+		}
+	}
+}
+
+footer {
+
+}
