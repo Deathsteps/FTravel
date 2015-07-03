@@ -110,10 +110,11 @@ header {
 
 	.product {
 
-		display: flex;
+		.clearfix();
 		padding: @padding-item 0;
 
 		.pic {
+			float: left;
 			width: 80px;
 			height: 70px;
 
@@ -124,8 +125,7 @@ header {
 		}
 
 		.detail {
-
-			margin-left: 20px;
+			margin-left: 80 + @padding-item;
 			padding-top: @padding-icon;
 
 			h3 {

@@ -5,6 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+require("node-jsx").install({
+  harmony: true,
+  extension: ".jsx"
+});
+
 var errorHandlers = require('./middlewares/errorHandlers');
 
 var indexes = require('./routes/index');
@@ -23,6 +28,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'prototypes')));
 
 app.use('/', indexes);
 app.use('/', products);
