@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+  </head>
+  <body>
+  	<header>
+      <span class="back">Back</span>
+      <h1><%= title %></h1>
+      <span class="home">Home</span>
+    </header>
+    <div class="main" id="main"><%- body %></div>
+    <footer></footer>
+    <% if (data) {%>
+    <script type="text/javascript">
+      (function (window) {
+        window.initialData = {};
+        window.initialData['<%= data.key %>'] = (<%- data.content %>);
+      })(window);
+    </script>
+    <%}%>
+    <script type="text/javascript" src="/js/bundle.js"></script>
+  </body>
+</html>
