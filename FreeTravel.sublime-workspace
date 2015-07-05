@@ -4,6 +4,70 @@
 		"selected_items":
 		[
 			[
+				"par",
+				"paramNames"
+			],
+			[
+				"pa",
+				"pattern"
+			],
+			[
+				"ma",
+				"matches"
+			],
+			[
+				"_par",
+				"_parsePattern"
+			],
+			[
+				"reg",
+				"regExp"
+			],
+			[
+				"res",
+				"resolve"
+			],
+			[
+				"ca",
+				"cacheData"
+			],
+			[
+				"req",
+				"require"
+			],
+			[
+				"ar",
+				"args"
+			],
+			[
+				"head",
+				"headers"
+			],
+			[
+				"padding",
+				"padding-item"
+			],
+			[
+				"Pro",
+				"ProductStore"
+			],
+			[
+				"page",
+				"pageIndex"
+			],
+			[
+				"produ",
+				"productId"
+			],
+			[
+				"p",
+				"pageQuery"
+			],
+			[
+				"Produc",
+				"ProductID"
+			],
+			[
 				"prod",
 				"prod"
 			],
@@ -60,10 +124,6 @@
 				"segment"
 			],
 			[
-				"pa",
-				"package"
-			],
-			[
 				"pro",
 				"prod"
 			],
@@ -86,10 +146,6 @@
 			[
 				"Ho",
 				"HotelID"
-			],
-			[
-				"req",
-				"requestHotels"
 			],
 			[
 				"requ",
@@ -121,10 +177,6 @@
 			],
 			[
 				"call",
-				"callback"
-			],
-			[
-				"ca",
 				"callback"
 			],
 			[
@@ -170,10 +222,6 @@
 			[
 				"font",
 				"font-size"
-			],
-			[
-				"padding",
-				"padding-icon"
 			],
 			[
 				"max",
@@ -230,10 +278,6 @@
 			[
 				"el",
 				"element"
-			],
-			[
-				"ar",
-				"angular"
 			],
 			[
 				"sc",
@@ -300,34 +344,80 @@
 	"buffers":
 	[
 		{
-			"file": "app.js",
+			"file": "public/js/components/ListPage.jsx",
 			"settings":
 			{
-				"buffer_size": 929,
+				"buffer_size": 1854,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "services/product.js",
+			"file": "public/js/app.js",
 			"settings":
 			{
-				"buffer_size": 345,
+				"buffer_size": 222,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/js/components/Root.jsx",
+			"settings":
+			{
+				"buffer_size": 537,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "var _ = require('lodash');\n\nvar _routers = {};\n\nvar rParam = /:\\w+/g;\n\nvar RouterManager = {\n	register: function (pattern, appClass) {\n		if(!pattern) return;\n		var patternObj = this._parsePattern(pattern);\n		_routers[pattern] = {pattern: patternObj, appClass: appClass};\n	},\n\n	_parsePath: function (pathname, pattern) {\n		\n	},\n\n	_parsePattern: function (pattern) {\n		var ret = {regExp: pattern};\n\n		if(_.isRegExp(pattern)) return ret;\n\n		ret.regExp = new RegExp(pattern.replace(rParam, \"(\\\\w+)\").replace('\\\\','\\\\\\\\'));\n\n		if(rParam.test(pattern)){			\n			var paramNames = pattern.match(rParam);\n			paramNames = _.map(function (param) {\n				return param.substring(1, param.length);\n			});\n			ret.params = paramNames;\n		}\n\n		return ret;\n	},\n\n	match: function (pathname) {\n		for(var k in _routers){\n			var router = _routers[k];\n			var matches = pathname.match(router.pattern.regExp);\n\n			if(matches){\n				var ret = {appClass: router.appClass, params: matches.shift()};\n				ret.params.forEach(function (item, i) {\n					ret.params[router.pattern.params[i]]\n				});\n			}\n		}\n	}\n};",
+			"file": "public/js/libs/RouterManager.js",
+			"file_size": 1056,
+			"file_write_time": 130803943000000000,
+			"settings":
+			{
+				"buffer_size": 1073,
+				"line_ending": "Unix",
+				"name": "var RouterManager = {"
+			}
+		},
+		{
+			"file": "public/js/stores/ProductStore.js",
+			"settings":
+			{
+				"buffer_size": 669,
+				"line_ending": "Unix",
+				"name": "var _ = require('lodash');"
+			}
+		},
+		{
+			"file": "public/js/stores/Store.js",
+			"settings":
+			{
+				"buffer_size": 659,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "util/fetch.js",
+			"settings":
+			{
+				"buffer_size": 3026,
+				"line_ending": "Unix",
+				"name": "module.exports = function (){"
 			}
 		},
 		{
 			"file": "routes/product.js",
 			"settings":
 			{
-				"buffer_size": 349,
+				"buffer_size": 1189,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "test/productServiceTest.js",
+			"file": "views/layout.ejs",
 			"settings":
 			{
-				"buffer_size": 375,
+				"buffer_size": 727,
 				"line_ending": "Unix"
 			}
 		}
@@ -378,12 +468,30 @@
 	"expanded_folders":
 	[
 		"/Users/xujie/Documents/Github/FTravel",
-		"/Users/xujie/Documents/Github/FTravel/routes",
-		"/Users/xujie/Documents/Github/FTravel/services",
-		"/Users/xujie/Documents/Github/FTravel/test"
+		"/Users/xujie/Documents/Github/FTravel/public",
+		"/Users/xujie/Documents/Github/FTravel/public/js",
+		"/Users/xujie/Documents/Github/FTravel/routes"
 	],
 	"file_history":
 	[
+		"/Users/xujie/Documents/Github/FTravel/public/js/components/Root.jsx",
+		"/Users/xujie/Documents/Github/FTravel/public/js/bundle.js",
+		"/Users/xujie/Documents/Github/FTravel/app.js",
+		"/Users/xujie/Documents/Github/FTravel/views/layout.ejs",
+		"/Users/xujie/Documents/Github/FTravel/test/fetchTest.js",
+		"/Users/xujie/Documents/Github/FTravel/public/js/components/Product.jsx",
+		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/Users/xujie/Documents/Github/FTravel/test/productServiceTest.js",
+		"/Users/xujie/Documents/Github/FTravel/webpack.config.js",
+		"/Users/xujie/Documents/Github/FTravel/prototypes/styles/site.less",
+		"/Users/xujie/Documents/Github/FTravel/public/css/site.less",
+		"/Users/xujie/Documents/Github/FTravel/prototypes/list.html",
+		"/Users/xujie/Documents/Github/FTravel/public/js/app.js",
+		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/JsFormat/Default (OSX).sublime-keymap",
+		"/Users/xujie/Documents/Github/FTravel/services/product.js",
+		"/Users/xujie/Documents/mvc/React/scripts/app/components/HotelApp.js",
+		"/Users/xujie/Documents/mvc/React/scripts/app/components/Hotel.js",
+		"/Users/xujie/Documents/mvc/React/scripts/app/components/app.js",
 		"/Users/xujie/Documents/Github/FTravel/tests/productServiceTest",
 		"/Users/xujie/Documents/Github/FTravel/routes/product.js",
 		"/Users/xujie/Documents/Github/FTravel/package.json",
@@ -392,7 +500,6 @@
 		"/Users/xujie/Documents/Github/FTravel/views/product.ejs",
 		"/Users/xujie/Documents/Github/FTravel/.gitignore",
 		"/Users/xujie/Documents/Github/FTravel/.jshintrc",
-		"/Users/xujie/Documents/Github/FTravel/app.js",
 		"/Users/xujie/Documents/mvc/React/scripts/app/components/Selector.js",
 		"/Users/xujie/Documents/mvc/React/scripts/app/components/Room.js",
 		"/Users/xujie/Documents/mvc/React/scripts/app/components/SelectButton.js",
@@ -413,7 +520,6 @@
 		"/Users/xujie/Documents/mvc/FreeTravel/package.json",
 		"/Users/xujie/Documents/mvc/FreeTravel/other/db.js",
 		"/Users/xujie/Documents/mvc/FreeTravel/other/data.json",
-		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/JsFormat/Default (OSX).sublime-keymap",
 		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/Terminal/Default (OSX).sublime-keymap",
 		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
@@ -476,7 +582,7 @@
 	],
 	"find":
 	{
-		"height": 46.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -493,6 +599,21 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"	\n",
+			"mixStaticSpecIntoComponent",
+			"statics",
+			"ReactClass",
+			"createClass",
+			"ListPage",
+			"fetchInitalData",
+			"Promise",
+			"request",
+			"callback",
+			"clearfix",
+			"flex",
+			"style",
+			"EventEmitter",
+			"curly",
 			"');\n",
 			"routes",
 			"users",
@@ -575,54 +696,23 @@
 			[
 				{
 					"buffer": 0,
-					"file": "app.js",
+					"file": "public/js/components/ListPage.jsx",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 929,
+						"buffer_size": 1854,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								839,
-								839
+								500,
+								515
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 58.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "services/product.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 345,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								335,
-								335
-							]
-						],
-						"settings":
-						{
-							"auto_name": "",
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -633,25 +723,54 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "routes/product.js",
+					"buffer": 1,
+					"file": "public/js/app.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 349,
+						"buffer_size": 222,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								313,
-								313
+								222,
+								222
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "public/js/components/Root.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 537,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								434,
+								434
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -662,19 +781,77 @@
 				},
 				{
 					"buffer": 3,
-					"file": "test/productServiceTest.js",
+					"file": "public/js/libs/RouterManager.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 375,
+						"buffer_size": 1073,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								212,
-								212
+								733,
+								733
+							]
+						],
+						"settings":
+						{
+							"auto_name": "var RouterManager = {",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 135.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "public/js/stores/ProductStore.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 669,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								667,
+								667
+							]
+						],
+						"settings":
+						{
+							"auto_name": "var _ = require('lodash');",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/js/stores/Store.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 659,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								628,
+								628
 							]
 						],
 						"settings":
@@ -685,7 +862,94 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "util/fetch.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3026,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2292,
+								2292
+							]
+						],
+						"settings":
+						{
+							"auto_name": "module.exports = function (){",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1236.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "routes/product.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1189,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								835,
+								835
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 200.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "views/layout.ejs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 727,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								531,
+								531
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
@@ -741,7 +1005,7 @@
 		[
 			[
 				"",
-				"prototypes/detail.html"
+				"util/fetch.js"
 			]
 		],
 		"width": 0.0
