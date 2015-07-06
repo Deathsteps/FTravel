@@ -1,8 +1,8 @@
 require('../css/site.less');
 
 var React = require("react");
-var ListPage = React.createFactory(require("./components/ListPage"));
+var Root = React.createFactory(require("./components/Root"));
 
 window.onload = function() {
-	React.render(ListPage(), document.getElementById("main"));
+	React.render(Root(), document.getElementById("main"));
 };

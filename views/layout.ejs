@@ -16,7 +16,9 @@
     <script type="text/javascript">
       (function (window) {
         window.initialData = {};
+        <% if (data) {%>
         window.initialData['<%= data.key %>'] = (<%- data.content %>);
+        <%}%>
       })(window);
     </script>
     <%}%>

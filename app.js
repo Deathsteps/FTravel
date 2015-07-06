@@ -10,8 +10,6 @@ require("node-jsx").install({
   extension: ".jsx"
 });
 
-var errorHandlers = require('./middlewares/errorHandlers');
-
 var indexes = require('./routes/index');
 var products = require('./routes/product');
 
@@ -33,6 +31,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexes);
 app.use('/', products);
 
+app.use('/', require('./middlewares/pageHandler'));
+
+var errorHandlers = require('./middlewares/errorHandlers');
 app.use(errorHandlers.handle404);
 app.use(errorHandlers.handle);
 

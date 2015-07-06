@@ -23,21 +23,9 @@ router.get('/product', function(req, res, next) {
 				}
 				res.json(prods);
 			});
-	} else {
-		var ListPage = require("../public/js/components/ListPage");
-		ListPage.fetchInitialData().then(function (data) {
-			var body = React.renderToString(React.createFactory(ListPage)());
-			var model = {
-				title: 'Products',
-				body: body,
-				data: data
-			};
-			console.log(data);
-			res.render('layout', model);
-		});
+	}else{
+		next();
 	}
-		
-	
 });
 
 router.get('/product/:id', function(req, res, next) {
