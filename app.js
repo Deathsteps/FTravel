@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexes);
 app.use('/', products);
 
-app.use('/', require('./middlewares/pageHandler'));
+app.use('/', require('./middlewares/appHandler'));
 
 var errorHandlers = require('./middlewares/errorHandlers');
 app.use(errorHandlers.handle404);

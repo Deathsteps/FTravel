@@ -1,5 +1,25 @@
 var Promise = require('bluebird');
 
+function Response(opts) {
+	this.status = opts.status || '200';
+	this.statusText = opts.statusText || 'Success';
+	this.headers = opts.headers;
+	this.url = opts.url || '';
+	this.body = opts.body;
+	this.jsonBody = opts.jsonBody;
+}
+Response.prototype = {
+	constructor: Response,
+
+	json: function () {
+		return this.jsonBody || JSON.parse(this.body);
+	},
+
+	text: function () {
+		return this.body || JSON.stringify(this.jsonBody);
+	}
+};
+
 if(typeof XMLHttpRequest === "function"){
 	(function (module) {
 		function headers(xhr) {
@@ -42,17 +62,13 @@ if(typeof XMLHttpRequest === "function"){
 						return;
 					}
 
-					var response = {
+					resolve(new Response({
 						status: status,
 						statusText: xhr.statusText,
 						headers: headers(xhr),
-						url: responseURL(),
+						url: responseURL(xhr),
 						body: 'response' in xhr ? xhr.response : xhr.responseText
-					};
-					response.json = function () {
-						return JSON.parse(this.body);
-					};   
-					resolve(response);
+					}));
 				};
 
 				xhr.onerror = function() {
@@ -61,7 +77,7 @@ if(typeof XMLHttpRequest === "function"){
 
 				xhr.open(_method, url, true);
 
-				_headers.forEach(function(value, name) {
+				_.forEach(_headers, function(value, name) {
 					xhr.setRequestHeader(name, value);
 				});
 
@@ -69,6 +85,7 @@ if(typeof XMLHttpRequest === "function"){
 			});
 		}
 
+		fetch.Response = Response;
 		module.exports = fetch;
 	})(module);
 	
@@ -88,7 +105,7 @@ if(typeof XMLHttpRequest === "function"){
 
 		function fetch (url, init) {
 			return new Promise(function (resolve, reject) {
-				var postData = init.body;
+				var postData = init.body || '';
 				options.path = url;
 				options.method = init.method;
 				options.headers = init.headers;
@@ -102,19 +119,13 @@ if(typeof XMLHttpRequest === "function"){
 						buffers.push(chunk);
 					});
 					res.on('end', function () {
-						var response = {
+						resolve(new Response({
 							status: res.statusCode,
 							statusText: res.statusText,
 							headers: res.headers,
 							url: res.url,
 							body: buffers.join('')
-						};
-
-						response.json = function () {
-							return JSON.parse(this.body);
-						};
-						
-						resolve(response);
+						}));
 					});
 				});
 
@@ -128,6 +139,7 @@ if(typeof XMLHttpRequest === "function"){
 			});
 		}
 
+		fetch.Response = Response;
 		module.exports = fetch;
 	})(module);
 }

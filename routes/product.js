@@ -29,16 +29,20 @@ router.get('/product', function(req, res, next) {
 });
 
 router.get('/product/:id', function(req, res, next) {
-	productService.findOne({
-			ProductID: +req.params.id // pay attention to the type of the parameter
-		},
-		function(err, prod) {
-			if (err) {
-				err.status = 500;
-				return next(err);
-			}
-			res.json(prod);
-		});
+	if (req.headers['content-type'] === 'application/json') {
+		productService.findOne({
+				ProductID: +req.params.id // pay attention to the type of the parameter
+			},
+			function(err, prod) {
+				if (err) {
+					err.status = 500;
+					return next(err);
+				}
+				res.json(prod);
+			});
+	}else{
+		next();
+	}
 });
 
 module.exports = router;

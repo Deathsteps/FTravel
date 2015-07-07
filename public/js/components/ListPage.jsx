@@ -11,9 +11,7 @@ var ListPage = React.createClass({
 		fetchInitialData: function () {
 			return new Promise(function (resolve, reject) {
 				ProductStore.findByPage({PageIndex: 1})
-					.then(function (res) {
-						resolve({key: ProductStore.cacheKey, content: res.body});
-					});
+					.then( (res) => resolve({key: ProductStore.LIST_CACHE_KEY, content: res.text()}) );
 			});
 		}
 	},
@@ -26,7 +24,7 @@ var ListPage = React.createClass({
 
 	componentDidMount: function() {
 		ProductStore.on('list-fetched', this._onProductsFetched);
-		ProductStore.findByPage({PageIndex: 1});
+		!this.state.data && ProductStore.findByPage({PageIndex: 1});
 	},
 
 	componentWillUnMount: function () {

@@ -136,6 +136,35 @@ header {
 	}
 }
 
+.detail_page {
+	.img { 
+		width: 100%;
+
+		img {width: 100%;}
+	}
+
+	h1 { padding: @padding-item @padding-side; }
+
+	.tags, .desc { padding: 0 @padding-side @padding-item; }
+
+	.desc {
+		
+		p { 
+			margin-left: 40px; 
+			line-height: 18px; 
+			font-size: @font-size-small; 
+		}
+
+		i { 
+			float: left; 
+			margin-top: @padding-icon; 
+			padding: (@padding-icon - 1) @padding-icon;
+			color: @color-widget; 
+			border: 1px solid @color-widget;
+		}
+	}
+}
+
 footer {
 
 }

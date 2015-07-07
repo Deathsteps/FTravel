@@ -1,15 +1,24 @@
 var _ = require('lodash');
+var EventEmitter = require('events').EventEmitter;
 
 var _routes = [];
+var _notFoundPage = null;
 
 var rParam = /:[\w\d]+/g;
 
-var RouteManager = {
-	register: function (pattern, appClass) {
+var RouteManager = _.assign({}, EventEmitter.prototype, {
+
+	defaultPath: typeof document === 'undefined' ? '' : document.location.pathname,
+
+	register: function (pattern, component) {
 		if(!pattern) return;
+
+		if(arguments.length === 1)
+			return (_notFoundPage = pattern);
+
 		var route = {
 			pattern: this._parsePattern(pattern),
-			appClass: appClass
+			component: component
 		};
 		// route matching is a FILO procedure,
 		// the later route will be matched while there're two same patterns
@@ -46,7 +55,7 @@ var RouteManager = {
 
 			if(matches){
 				matches.shift();
-				var ret = {appClass: route.appClass, params: _.toArray(matches)};
+				var ret = {component: route.component, params: _.toArray(matches)};
 				// fill in parameters
 				if(route.pattern.params)
 					ret.params.forEach(function (item, i) {
@@ -55,8 +64,21 @@ var RouteManager = {
 				return ret;
 			}
 		}
-		return {appClass: null};
+		return {component: _notFoundPage};
+	},
+
+	broadcast: function () {
+		this.emit('route-changed', document.location.pathname);
+	},
+
+	bindUrlChangeEvents: function () {
+		this._onPopState = this.broadcast.bind(this);
+		window && window.addEventListener('popstate', this._onPopState);
+	},
+
+	unbindUrlChangeEvents: function () {
+		window && window.removeEventListener('popstate', this._onPopState);	
 	}
-};
+});
 
 module.exports = RouteManager;

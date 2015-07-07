@@ -4,11 +4,14 @@ var Promise = require('bluebird');
 var Store = require('./Store');
 
 var ProductStore = _.assign({}, Store, {
-	cacheKey: 'PRODUCTS',
 
-	findByPage: function (pageQuery, onlyCache) {
-		var cache = this._getFromCache();
-		if(onlyCache || cache) return cache;
+	LIST_CACHE_KEY: 'PRODUCTS',
+	DETAIL_CHACHE_KEY: 'PRODUCT_DETAILS',
+
+	findByPage: function (pageQuery, fromCache) {
+		var cache = this._getFromCache(this.LIST_CACHE_KEY);
+		if(fromCache) return cache;
+
 		return (
 			this._fetch('/product', {
 				headers: {'Content-Type': 'application/json'},
@@ -16,11 +19,29 @@ var ProductStore = _.assign({}, Store, {
 			}).then(function (res) {
 				var data = res.json();
 				this.emit('list-fetched', data);
-				this._setCache(data);
+				this._setCache(this.LIST_CACHE_KEY, data);
 				// for passing data to next then function
 				return Promise.resolve(res);
 			}.bind(this))
 		);
+	},
+
+	findOne: function (query, fromCache) {
+		var cache = this._getFromCache(this.DETAIL_CHACHE_KEY);
+		if(fromCache) {
+			return (cache && cache.ProductID == query.ProductID) ? cache : null;
+		}
+		return (
+			this._fetch('/product/' + query.ProductID, {
+				headers: {'Content-Type': 'application/json'}
+			}).then(function (res) {
+				var data = res.json();
+				this.emit('detail-fetched', data);
+				this._setCache(this.DETAIL_CHACHE_KEY, data);
+				return Promise.resolve(res);
+			}.bind(this))
+		);
+
 	}
 });
 
