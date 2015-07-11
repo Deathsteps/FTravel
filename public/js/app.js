@@ -11,7 +11,6 @@ RouteManager.register('/product', ListPage);
 RouteManager.register('/product/:id', DetailPage);
 
 if(typeof window !== 'undefined'){
-	// Client Side
 	require('../css/site.less');
 
 	window.onload = function() {

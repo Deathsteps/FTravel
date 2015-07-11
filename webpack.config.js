@@ -1,10 +1,11 @@
 var path = require("path");
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = [{
   context: path.join(__dirname, "public", "js"),
   entry: "app",
   output: {
-    path: path.join(__dirname, "public", "js"),
+    path: path.join(__dirname, "public", "assets"),
     filename: "bundle.js"
   },
   module: {
@@ -13,7 +14,7 @@ module.exports = [{
       loader: "jsx-loader?harmony"
     },{
       test: /\.less$/,
-      loader: "style!css!less"
+      loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
     }]
   },
   resolve: {
@@ -21,5 +22,8 @@ module.exports = [{
     extensions: ["", ".js", ".jsx"],
     root: [path.join(__dirname, "public", "js")],
     modulesDirectories: ["node_modules"]
-  }
+  },
+  plugins: [
+    new ExtractTextPlugin("[name].css")
+  ]
 }];

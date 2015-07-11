@@ -806,7 +806,8 @@
 						"settings":
 						{
 							"auto_name": "var React = require('react');",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 33.0,
@@ -884,8 +885,8 @@
 						"selection":
 						[
 							[
-								903,
-								903
+								711,
+								711
 							]
 						],
 						"settings":

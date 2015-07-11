@@ -1,0 +1,237 @@
+/*
+KISSY CSS Reset
+理念：清除和重置是紧密不可分的
+特色：1.适应中文 2.基于最新主流浏览器
+维护：玉伯(lifesinger@gmail.com), 正淳(ragecarrier@gmail.com)
+*/
+
+/* 清除内外边距 */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+fieldset, lengend, button, input, textarea, /* form elements 表单元素 */
+th, td { /* table elements 表格元素 */
+    margin: 0;
+    padding: 0;
+}
+
+/* 设置默认字体 */
+body,
+button, input, select, textarea { /* for ie */
+    /*font: 12px/1 Tahoma, Helvetica, Arial, "宋体", sans-serif;*/
+    font: 12px/1 Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif; /* 用 ascii 字符表示，使得在任何编码下都无问题 */
+}
+
+h1 { font-size: 18px; /* 18px / 12px = 1.5 */ }
+h2 { font-size: 16px; }
+h3 { font-size: 14px; }
+h4, h5, h6 { font-size: 100%; }
+
+address, cite, dfn, em, var { font-style: normal; } /* 将斜体扶正 */
+code, kbd, pre, samp, tt { font-family: "Courier New", Courier, monospace; } /* 统一等宽字体 */
+small { font-size: 12px; } /* 小于 12px 的中文很难阅读，让 small 正常化 */
+
+/* 重置列表元素 */
+ul, ol { list-style: none; }
+
+/* 重置文本格式元素 */
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+abbr[title], acronym[title] { /* 注：1.ie6 不支持 abbr; 2.这里用了属性选择符，ie6 下无效果 */
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
+q:before, q:after { content: ''; }
+
+/* 重置表单元素 */
+legend { color: #000; } /* for ie6 */
+fieldset, img { border: none; } /* img 搭车：让链接里的 img 无边框 */
+/* 注：optgroup 无法扶正 */
+button, input, select, textarea {
+    font-size: 100%; /* 使得表单元素在 ie 下能继承字体大小 */
+}
+
+/* 重置表格元素 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* 重置 hr */
+hr {
+    border: none;
+    height: 1px;
+}
+
+/* 让非ie浏览器默认也显示垂直滚动条，防止因滚动条引起的闪烁 */
+html { overflow-y: scroll; }/* ------- color -------*/
+/* ------- font-size -------*/
+/* ------- padding -------*/
+/* ------- border-radius -------*/
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.invisible {
+  visibility: hidden;
+}
+.hidden {
+  display: none !important;
+}
+/* ----------Components--------- */
+.btn {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.btn:active {
+  outline: 0;
+  background-image: none;
+}
+.btn.disabled {
+  background: #cccccc;
+  color: white;
+}
+.price {
+  color: #ff7d13;
+  font-size: 18px;
+}
+.price dfn {
+  margin-right: 3px;
+  font-size: 12px;
+}
+h1 {
+  font-weight: bold;
+  font-size: 18px;
+}
+h3 {
+  font-size: 16px;
+}
+h4 {
+  font-size: 14px;
+}
+/* ----------Site--------- */
+header {
+  background: #099fde;
+  color: white;
+}
+header h1,
+header .back,
+header .home {
+  display: inline-block;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+}
+header h1 {
+  width: 100%;
+}
+header .back,
+header .home {
+  position: absolute;
+  top: 0;
+  width: 44px;
+  text-transform: uppercase;
+}
+header .back {
+  left: 0;
+}
+header .home {
+  right: 0;
+}
+/*-----------Page------------*/
+.list_page {
+  background-color: #eeeeee;
+}
+.list_page section {
+  margin-bottom: 15px;
+  padding: 0 15px;
+  background-color: white;
+}
+.list_page .ads {
+  height: 120px;
+  line-height: 120px;
+  text-align: center;
+  background-color: #ffb579;
+  color: white;
+  font-size: 18px;
+}
+.list_page .lnk_custom {
+  line-height: 44px;
+  font-size: 18px;
+}
+.list_page .recommend {
+  padding-top: 10px;
+}
+.list_page .product {
+  padding: 10px 0;
+}
+.list_page .product:before,
+.list_page .product:after {
+  content: " ";
+  display: table;
+}
+.list_page .product:after {
+  clear: both;
+}
+.list_page .product:before,
+.list_page .product:after {
+  content: " ";
+  display: table;
+}
+.list_page .product:after {
+  clear: both;
+}
+.list_page .product .pic {
+  float: left;
+  width: 80px;
+  height: 70px;
+}
+.list_page .product .pic img {
+  width: 80px;
+  height: 70px;
+}
+.list_page .product .detail {
+  margin-left: 90px;
+  padding-top: 3px;
+}
+.list_page .product .detail h3 {
+  margin-bottom: 3px;
+  font-size: 16px;
+}
+.detail_page .img {
+  width: 100%;
+}
+.detail_page .img img {
+  width: 100%;
+}
+.detail_page h1 {
+  padding: 10px 15px;
+}
+.detail_page .tags,
+.detail_page .desc {
+  padding: 0 15px 10px;
+}
+.detail_page .desc p {
+  margin-left: 40px;
+  line-height: 18px;
+  font-size: 12px;
+}
+.detail_page .desc i {
+  float: left;
+  margin-top: 3px;
+  padding: 2px 3px;
+  color: #ff7d13;
+  border: 1px solid #ff7d13;
+}
