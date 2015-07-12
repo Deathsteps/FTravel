@@ -50,14 +50,14 @@
 	var RouteManager = __webpack_require__(162);
 	var NotFoundPage = __webpack_require__(166);
 	var ListPage     = __webpack_require__(185);
-	var DetailPage   = __webpack_require__(225);
+	var DetailPage   = __webpack_require__(226);
 
 	RouteManager.register(NotFoundPage);
 	RouteManager.register('/product', ListPage);
 	RouteManager.register('/product/:id', DetailPage);
 
 	if(typeof window !== 'undefined'){
-		__webpack_require__(226);
+		__webpack_require__(227);
 
 		window.onload = function() {
 
@@ -40537,8 +40537,9 @@
 	var React = __webpack_require__(3);
 	var Promise = __webpack_require__(160);
 
-	var Product = __webpack_require__(186);
-	var ProductStore = __webpack_require__(188);
+	var Header = __webpack_require__(186);
+	var Product = __webpack_require__(188);
+	var ProductStore = __webpack_require__(189);
 
 	var ListPage = React.createClass({displayName: "ListPage",
 
@@ -40559,6 +40560,7 @@
 	    },
 
 		componentDidMount: function() {
+			Header.set({ title: 'List' });
 			ProductStore.on('list-fetched', this._onProductsFetched);
 			!this.state.data && ProductStore.findByPage({PageIndex: 1});
 		},
@@ -40608,36 +40610,26 @@
 /* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(3);
-
+	
 	var PageHelper = __webpack_require__(187);
 
-	var Product = React.createClass({displayName: "Product",
-	    render: function () {
-	    	var data = this.props.data;
-	        return (
-				React.createElement("div", {className: "product", onClick: this._onClick}, 
-		            React.createElement("div", {className: "pic"}, 
-		              React.createElement("img", {src: data.PicURL})
-		            ), 
-		            React.createElement("div", {className: "detail"}, 
-		              React.createElement("h3", null, data.ProductName), 
-		              React.createElement("div", null, 
-		                React.createElement("span", {className: "price"}, 
-		                  React.createElement("dfn", null, "¥"), data.Price.Current
-		                )
-		              )
-		            )
-		      	)
-	        );
-	    },
+	var _el;
 
-	    _onClick: function () {
-	    	PageHelper.forward('/product/'+this.props.data.ProductID);
-	    }
-	});
+	function init () {
+		_el = document.querySelector('#js-header');
 
-	module.exports = Product;
+		var lnkBack = _el.querySelector('span.back');
+		lnkBack.addEventListener('click', PageHelper.backward);
+	}
+
+	function set (opts) {
+		if(!_el) init();
+		// set title
+		if(opts.title)
+			_el.querySelector('h1').innerHTML = opts.title;
+	}
+
+	exports.set = set;
 
 /***/ },
 /* 187 */
@@ -40670,10 +40662,45 @@
 /* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var React = __webpack_require__(3);
+
+	var PageHelper = __webpack_require__(187);
+
+	var Product = React.createClass({displayName: "Product",
+	    render: function () {
+	    	var data = this.props.data;
+	        return (
+				React.createElement("div", {className: "product", onClick: this._onClick}, 
+		            React.createElement("div", {className: "pic"}, 
+		              React.createElement("img", {src: data.PicURL})
+		            ), 
+		            React.createElement("div", {className: "detail"}, 
+		              React.createElement("h3", null, data.ProductName), 
+		              React.createElement("div", null, 
+		                React.createElement("span", {className: "price"}, 
+		                  React.createElement("dfn", null, "¥"), data.Price.Current
+		                )
+		              )
+		            )
+		      	)
+	        );
+	    },
+
+	    _onClick: function () {
+	    	PageHelper.forward('/product/'+this.props.data.ProductID);
+	    }
+	});
+
+	module.exports = Product;
+
+/***/ },
+/* 189 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var _ = __webpack_require__(163);
 	var Promise = __webpack_require__(160);
 
-	var Store = __webpack_require__(189);
+	var Store = __webpack_require__(190);
 
 	var ProductStore = _.assign({}, Store, {
 
@@ -40722,13 +40749,13 @@
 
 
 /***/ },
-/* 189 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(163);
 	var EventEmitter = __webpack_require__(165).EventEmitter;
 
-	var fetch = __webpack_require__(190);
+	var fetch = __webpack_require__(191);
 
 	var IS_CLIENT = typeof window !== 'undefined';
 
@@ -40786,7 +40813,7 @@
 	module.exports = Store;
 
 /***/ },
-/* 190 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {var Promise = __webpack_require__(160);
@@ -40882,7 +40909,7 @@
 		
 	}else{
 		(function (module) {
-			var http = __webpack_require__(191);
+			var http = __webpack_require__(192);
 
 			var options = {
 				hostname: 'localhost',
@@ -40939,13 +40966,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(164)(module)))
 
 /***/ },
-/* 191 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var http = module.exports;
 	var EventEmitter = __webpack_require__(165).EventEmitter;
-	var Request = __webpack_require__(192);
-	var url = __webpack_require__(220)
+	var Request = __webpack_require__(193);
+	var url = __webpack_require__(221)
 
 	http.request = function (params, cb) {
 	    if (typeof params === 'string') {
@@ -41089,13 +41116,13 @@
 	};
 
 /***/ },
-/* 192 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Stream = __webpack_require__(193);
-	var Response = __webpack_require__(214);
-	var Base64 = __webpack_require__(218);
-	var inherits = __webpack_require__(219);
+	var Stream = __webpack_require__(194);
+	var Response = __webpack_require__(215);
+	var Base64 = __webpack_require__(219);
+	var inherits = __webpack_require__(220);
 
 	var Request = module.exports = function (xhr, params) {
 	    var self = this;
@@ -41304,7 +41331,7 @@
 
 
 /***/ },
-/* 193 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -41331,14 +41358,14 @@
 	module.exports = Stream;
 
 	var EE = __webpack_require__(165).EventEmitter;
-	var inherits = __webpack_require__(194);
+	var inherits = __webpack_require__(195);
 
 	inherits(Stream, EE);
-	Stream.Readable = __webpack_require__(195);
-	Stream.Writable = __webpack_require__(210);
-	Stream.Duplex = __webpack_require__(211);
-	Stream.Transform = __webpack_require__(212);
-	Stream.PassThrough = __webpack_require__(213);
+	Stream.Readable = __webpack_require__(196);
+	Stream.Writable = __webpack_require__(211);
+	Stream.Duplex = __webpack_require__(212);
+	Stream.Transform = __webpack_require__(213);
+	Stream.PassThrough = __webpack_require__(214);
 
 	// Backwards-compat with node 0.4.x
 	Stream.Stream = Stream;
@@ -41437,7 +41464,7 @@
 
 
 /***/ },
-/* 194 */
+/* 195 */
 /***/ function(module, exports) {
 
 	if (typeof Object.create === 'function') {
@@ -41466,20 +41493,20 @@
 
 
 /***/ },
-/* 195 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(203);
-	exports.Stream = __webpack_require__(193);
+	exports = module.exports = __webpack_require__(204);
+	exports.Stream = __webpack_require__(194);
 	exports.Readable = exports;
-	exports.Writable = __webpack_require__(207);
-	exports.Duplex = __webpack_require__(196);
-	exports.Transform = __webpack_require__(208);
-	exports.PassThrough = __webpack_require__(209);
+	exports.Writable = __webpack_require__(208);
+	exports.Duplex = __webpack_require__(197);
+	exports.Transform = __webpack_require__(209);
+	exports.PassThrough = __webpack_require__(210);
 
 
 /***/ },
-/* 196 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -41520,12 +41547,12 @@
 
 
 	/*<replacement>*/
-	var util = __webpack_require__(197);
-	util.inherits = __webpack_require__(202);
+	var util = __webpack_require__(198);
+	util.inherits = __webpack_require__(203);
 	/*</replacement>*/
 
-	var Readable = __webpack_require__(203);
-	var Writable = __webpack_require__(207);
+	var Readable = __webpack_require__(204);
+	var Writable = __webpack_require__(208);
 
 	util.inherits(Duplex, Readable);
 
@@ -41575,7 +41602,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ },
-/* 197 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright Joyent, Inc. and other Node contributors.
@@ -41685,10 +41712,10 @@
 	function objectToString(o) {
 	  return Object.prototype.toString.call(o);
 	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(198).Buffer))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(199).Buffer))
 
 /***/ },
-/* 198 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Buffer) {/*!
@@ -41698,9 +41725,9 @@
 	 * @license  MIT
 	 */
 
-	var base64 = __webpack_require__(199)
-	var ieee754 = __webpack_require__(200)
-	var isArray = __webpack_require__(201)
+	var base64 = __webpack_require__(200)
+	var ieee754 = __webpack_require__(201)
+	var isArray = __webpack_require__(202)
 
 	exports.Buffer = Buffer
 	exports.SlowBuffer = SlowBuffer
@@ -43129,10 +43156,10 @@
 	  }
 	}
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(198).Buffer))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(199).Buffer))
 
 /***/ },
-/* 199 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
@@ -43262,7 +43289,7 @@
 
 
 /***/ },
-/* 200 */
+/* 201 */
 /***/ function(module, exports) {
 
 	exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -43352,7 +43379,7 @@
 
 
 /***/ },
-/* 201 */
+/* 202 */
 /***/ function(module, exports) {
 
 	
@@ -43391,7 +43418,7 @@
 
 
 /***/ },
-/* 202 */
+/* 203 */
 /***/ function(module, exports) {
 
 	if (typeof Object.create === 'function') {
@@ -43420,7 +43447,7 @@
 
 
 /***/ },
-/* 203 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -43447,12 +43474,12 @@
 	module.exports = Readable;
 
 	/*<replacement>*/
-	var isArray = __webpack_require__(204);
+	var isArray = __webpack_require__(205);
 	/*</replacement>*/
 
 
 	/*<replacement>*/
-	var Buffer = __webpack_require__(198).Buffer;
+	var Buffer = __webpack_require__(199).Buffer;
 	/*</replacement>*/
 
 	Readable.ReadableState = ReadableState;
@@ -43465,18 +43492,18 @@
 	};
 	/*</replacement>*/
 
-	var Stream = __webpack_require__(193);
+	var Stream = __webpack_require__(194);
 
 	/*<replacement>*/
-	var util = __webpack_require__(197);
-	util.inherits = __webpack_require__(202);
+	var util = __webpack_require__(198);
+	util.inherits = __webpack_require__(203);
 	/*</replacement>*/
 
 	var StringDecoder;
 
 
 	/*<replacement>*/
-	var debug = __webpack_require__(205);
+	var debug = __webpack_require__(206);
 	if (debug && debug.debuglog) {
 	  debug = debug.debuglog('stream');
 	} else {
@@ -43488,7 +43515,7 @@
 	util.inherits(Readable, Stream);
 
 	function ReadableState(options, stream) {
-	  var Duplex = __webpack_require__(196);
+	  var Duplex = __webpack_require__(197);
 
 	  options = options || {};
 
@@ -43549,14 +43576,14 @@
 	  this.encoding = null;
 	  if (options.encoding) {
 	    if (!StringDecoder)
-	      StringDecoder = __webpack_require__(206).StringDecoder;
+	      StringDecoder = __webpack_require__(207).StringDecoder;
 	    this.decoder = new StringDecoder(options.encoding);
 	    this.encoding = options.encoding;
 	  }
 	}
 
 	function Readable(options) {
-	  var Duplex = __webpack_require__(196);
+	  var Duplex = __webpack_require__(197);
 
 	  if (!(this instanceof Readable))
 	    return new Readable(options);
@@ -43659,7 +43686,7 @@
 	// backwards compatibility.
 	Readable.prototype.setEncoding = function(enc) {
 	  if (!StringDecoder)
-	    StringDecoder = __webpack_require__(206).StringDecoder;
+	    StringDecoder = __webpack_require__(207).StringDecoder;
 	  this._readableState.decoder = new StringDecoder(enc);
 	  this._readableState.encoding = enc;
 	  return this;
@@ -44378,7 +44405,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ },
-/* 204 */
+/* 205 */
 /***/ function(module, exports) {
 
 	module.exports = Array.isArray || function (arr) {
@@ -44387,13 +44414,13 @@
 
 
 /***/ },
-/* 205 */
+/* 206 */
 /***/ function(module, exports) {
 
 	/* (ignored) */
 
 /***/ },
-/* 206 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -44417,7 +44444,7 @@
 	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 	// USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-	var Buffer = __webpack_require__(198).Buffer;
+	var Buffer = __webpack_require__(199).Buffer;
 
 	var isBufferEncoding = Buffer.isEncoding
 	  || function(encoding) {
@@ -44620,7 +44647,7 @@
 
 
 /***/ },
-/* 207 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -44651,18 +44678,18 @@
 	module.exports = Writable;
 
 	/*<replacement>*/
-	var Buffer = __webpack_require__(198).Buffer;
+	var Buffer = __webpack_require__(199).Buffer;
 	/*</replacement>*/
 
 	Writable.WritableState = WritableState;
 
 
 	/*<replacement>*/
-	var util = __webpack_require__(197);
-	util.inherits = __webpack_require__(202);
+	var util = __webpack_require__(198);
+	util.inherits = __webpack_require__(203);
 	/*</replacement>*/
 
-	var Stream = __webpack_require__(193);
+	var Stream = __webpack_require__(194);
 
 	util.inherits(Writable, Stream);
 
@@ -44673,7 +44700,7 @@
 	}
 
 	function WritableState(options, stream) {
-	  var Duplex = __webpack_require__(196);
+	  var Duplex = __webpack_require__(197);
 
 	  options = options || {};
 
@@ -44761,7 +44788,7 @@
 	}
 
 	function Writable(options) {
-	  var Duplex = __webpack_require__(196);
+	  var Duplex = __webpack_require__(197);
 
 	  // Writable ctor is applied to Duplexes, though they're not
 	  // instanceof Writable, they're instanceof Readable.
@@ -45104,7 +45131,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ },
-/* 208 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -45173,11 +45200,11 @@
 
 	module.exports = Transform;
 
-	var Duplex = __webpack_require__(196);
+	var Duplex = __webpack_require__(197);
 
 	/*<replacement>*/
-	var util = __webpack_require__(197);
-	util.inherits = __webpack_require__(202);
+	var util = __webpack_require__(198);
+	util.inherits = __webpack_require__(203);
 	/*</replacement>*/
 
 	util.inherits(Transform, Duplex);
@@ -45319,7 +45346,7 @@
 
 
 /***/ },
-/* 209 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -45349,11 +45376,11 @@
 
 	module.exports = PassThrough;
 
-	var Transform = __webpack_require__(208);
+	var Transform = __webpack_require__(209);
 
 	/*<replacement>*/
-	var util = __webpack_require__(197);
-	util.inherits = __webpack_require__(202);
+	var util = __webpack_require__(198);
+	util.inherits = __webpack_require__(203);
 	/*</replacement>*/
 
 	util.inherits(PassThrough, Transform);
@@ -45371,24 +45398,17 @@
 
 
 /***/ },
-/* 210 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(207)
-
-
-/***/ },
 /* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(196)
+	module.exports = __webpack_require__(208)
 
 
 /***/ },
 /* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(208)
+	module.exports = __webpack_require__(197)
 
 
 /***/ },
@@ -45402,8 +45422,15 @@
 /* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Stream = __webpack_require__(193);
-	var util = __webpack_require__(215);
+	module.exports = __webpack_require__(210)
+
+
+/***/ },
+/* 215 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Stream = __webpack_require__(194);
+	var util = __webpack_require__(216);
 
 	var Response = module.exports = function (res) {
 	    this.offset = 0;
@@ -45525,7 +45552,7 @@
 
 
 /***/ },
-/* 215 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -46053,7 +46080,7 @@
 	}
 	exports.isPrimitive = isPrimitive;
 
-	exports.isBuffer = __webpack_require__(216);
+	exports.isBuffer = __webpack_require__(217);
 
 	function objectToString(o) {
 	  return Object.prototype.toString.call(o);
@@ -46097,7 +46124,7 @@
 	 *     prototype.
 	 * @param {function} superCtor Constructor function to inherit prototype from.
 	 */
-	exports.inherits = __webpack_require__(217);
+	exports.inherits = __webpack_require__(218);
 
 	exports._extend = function(origin, add) {
 	  // Don't do anything if add isn't an object
@@ -46118,7 +46145,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(5)))
 
 /***/ },
-/* 216 */
+/* 217 */
 /***/ function(module, exports) {
 
 	module.exports = function isBuffer(arg) {
@@ -46129,7 +46156,7 @@
 	}
 
 /***/ },
-/* 217 */
+/* 218 */
 /***/ function(module, exports) {
 
 	if (typeof Object.create === 'function') {
@@ -46158,7 +46185,7 @@
 
 
 /***/ },
-/* 218 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	;(function () {
@@ -46224,7 +46251,7 @@
 
 
 /***/ },
-/* 219 */
+/* 220 */
 /***/ function(module, exports) {
 
 	if (typeof Object.create === 'function') {
@@ -46253,7 +46280,7 @@
 
 
 /***/ },
-/* 220 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -46277,7 +46304,7 @@
 	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 	// USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-	var punycode = __webpack_require__(221);
+	var punycode = __webpack_require__(222);
 
 	exports.parse = urlParse;
 	exports.resolve = urlResolve;
@@ -46349,7 +46376,7 @@
 	      'gopher:': true,
 	      'file:': true
 	    },
-	    querystring = __webpack_require__(222);
+	    querystring = __webpack_require__(223);
 
 	function urlParse(url, parseQueryString, slashesDenoteHost) {
 	  if (url && isObject(url) && url instanceof Url) return url;
@@ -46966,7 +46993,7 @@
 
 
 /***/ },
-/* 221 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/*! https://mths.be/punycode v1.3.2 by @mathias */
@@ -47501,17 +47528,17 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(164)(module), (function() { return this; }())))
 
 /***/ },
-/* 222 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	exports.decode = exports.parse = __webpack_require__(223);
-	exports.encode = exports.stringify = __webpack_require__(224);
+	exports.decode = exports.parse = __webpack_require__(224);
+	exports.encode = exports.stringify = __webpack_require__(225);
 
 
 /***/ },
-/* 223 */
+/* 224 */
 /***/ function(module, exports) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -47597,7 +47624,7 @@
 
 
 /***/ },
-/* 224 */
+/* 225 */
 /***/ function(module, exports) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -47667,13 +47694,15 @@
 
 
 /***/ },
-/* 225 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(3);
 	var Promise = __webpack_require__(160);
+	var _ = __webpack_require__(163);
 
-	var ProductStore = __webpack_require__(188);
+	var Header = __webpack_require__(186);
+	var ProductStore = __webpack_require__(189);
 
 	var DetailPage = React.createClass({displayName: "DetailPage",
 		statics: {
@@ -47692,6 +47721,7 @@
 		},
 
 		componentDidMount: function() {
+			Header.set({ title: 'Detail' });
 			ProductStore.on('detail-fetched', this._onDetailFetched);
 			!this.state.productData && ProductStore.findOne({ProductID: this.props.params.id});
 		},
@@ -47704,31 +47734,86 @@
 			this.setState({ productData: data });
 		},
 
+		_renderFrees: function (productData) {
+			if(productData.Frees && productData.Frees.length){
+				return (
+					React.createElement("div", {className: "frees"}, 
+					    React.createElement("i", {className: "tab_red"}, "赠送"), 
+					    productData.Frees.map( function(item)  { 
+					     	return (React.createElement("p", null, item.Name));
+					    })
+					)
+				);
+			}
+		},
+
+		_renderRecommends: function (productData) {
+			if(productData.AdditionalInfos){
+				var recommendData = _.find(productData.AdditionalInfos, {Type: 1});
+				if(recommendData)
+					return (
+						React.createElement("div", {className: "info"}, 
+						  React.createElement("h3", null, recommendData.Title), 
+						  React.createElement("ul", {className: "info_list"}, 
+						  	recommendData.Notifies[0].Description.map( function(item)  {
+						  		// insert raw html
+						  		return (React.createElement("li", {dangerouslySetInnerHTML: {__html: item}}));
+						  	})
+						  )
+						)
+					);
+			}
+		},
+
+		_renderFees: function (productData) {
+			if(productData.AdditionalInfos){
+				var feeData = _.find(productData.AdditionalInfos, {Type: 3});
+				if(feeData){
+					var feeTitle = feeData.Title;
+					feeData = _(feeData.Notifies)
+						.pluck('Description')
+						.reduce(function (prev, curent) {
+							return prev.concat(curent);
+						}, []);
+					return (
+						React.createElement("div", {className: "info"}, 
+						  React.createElement("h3", null, feeTitle), 
+						  React.createElement("ul", {className: "info_list"}, 
+						  	feeData.map( function(item)  {
+						  		return (React.createElement("li", null, item));
+						  	})
+						  )
+						)	
+					);
+				}
+			}
+		},
+
 		render: function () {
 			var productData = this.state.productData;
 			if(productData){
+
+				var frees = this._renderFrees(productData); 
+				var recommends = this._renderRecommends(productData);
+				var fees = this._renderFees(productData);
+
 				return (
 					React.createElement("div", {className: "detail_page"}, 
-					  React.createElement("div", {className: "product"}, 
-					    React.createElement("div", {className: "img"}, 
-					      React.createElement("img", {src: productData.Images[0].LargeUrl})
-					    ), 
-					    React.createElement("h1", null, productData.ProductName), 
-					    React.createElement("div", {className: "tags"}, 
-					      React.createElement("span", {className: "price"}, 
-					        React.createElement("dfn", null, "¥"), productData.Price.Current
-					      ), 
-					      "起/人"
-					    ), 
-					    React.createElement("div", {className: "desc"}, 
-					      React.createElement("i", {className: "tab_red"}, "赠送"), 
-					      productData.Frees.map( function(item)  { 
-					      	return (React.createElement("p", null, item.Name));
-					      })
-					    )
+					  React.createElement("div", {className: "img"}, 
+					    React.createElement("img", {src: productData.Images[0].LargeUrl})
 					  ), 
-					  React.createElement("div", {className: "hotels"}), 
-					  React.createElement("div", {className: "flights"})
+					  React.createElement("h1", null, productData.ProductName), 
+					  React.createElement("div", {className: "tags"}, 
+					    React.createElement("span", {className: "price"}, 
+					      React.createElement("dfn", null, "¥"), productData.Price.Current
+					    ), 
+					    "起/人"
+					  ), 
+					  frees, 
+					  recommends, 
+					  React.createElement("div", {className: "resources"}
+					  ), 
+					  fees
 					)
 				);
 			}else{
@@ -47744,7 +47829,7 @@
 	module.exports = DetailPage;
 
 /***/ },
-/* 226 */
+/* 227 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

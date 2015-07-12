@@ -111,15 +111,108 @@ html { overflow-y: scroll; }/* ------- color -------*/
   margin-right: 3px;
   font-size: 12px;
 }
+.calendar {
+  border-top: 2px solid #099fde;
+  border-bottom: 2px solid #099fde;
+  padding-top: 3px;
+}
+.calendar ul {
+  width: 100%;
+}
+.calendar ul:before,
+.calendar ul:after {
+  content: " ";
+  display: table;
+}
+.calendar ul:after {
+  clear: both;
+}
+.calendar ul:before,
+.calendar ul:after {
+  content: " ";
+  display: table;
+}
+.calendar ul:after {
+  clear: both;
+}
+.calendar ul li {
+  float: left;
+  padding: 3px 0;
+  width: 14.28%;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+}
+.calendar .weekday {
+  font-size: 12px;
+  line-height: 18px;
+  color: #808080;
+}
+.calendar .title {
+  padding: 10px 0;
+  font-size: 18px;
+}
+.calendar .title:before,
+.calendar .title:after {
+  content: " ";
+  display: table;
+}
+.calendar .title:after {
+  clear: both;
+}
+.calendar .title:before,
+.calendar .title:after {
+  content: " ";
+  display: table;
+}
+.calendar .title:after {
+  clear: both;
+}
+.calendar .title span,
+.calendar .title .prev,
+.calendar .title .next {
+  float: left;
+  text-align: center;
+}
+.calendar .title .prev,
+.calendar .title .next {
+  width: 15%;
+}
+.calendar .title span {
+  width: 70%;
+}
+.calendar .days li {
+  height: 44px;
+  font-size: 12px;
+}
+.calendar .days .disable {
+  color: #cccccc;
+}
+.calendar .days em {
+  display: block;
+}
+.calendar .days em i {
+  display: block;
+  padding-top: 3px;
+  color: #ff7d13;
+}
 h1 {
   font-weight: bold;
   font-size: 18px;
+  line-height: 20px;
 }
 h3 {
   font-size: 16px;
+  line-height: 18px;
 }
 h4 {
   font-size: 14px;
+  line-height: 16px;
+}
+em,
+i {
+  font-style: normal;
+  font-weight: 400;
 }
 /* ----------Site--------- */
 header {
@@ -210,28 +303,66 @@ header .home {
   margin-bottom: 3px;
   font-size: 16px;
 }
+.detail_page {
+  background: #eeeeee;
+}
 .detail_page .img {
   width: 100%;
 }
 .detail_page .img img {
   width: 100%;
 }
-.detail_page h1 {
-  padding: 10px 15px;
-}
+.detail_page h1,
 .detail_page .tags,
-.detail_page .desc {
-  padding: 0 15px 10px;
+.detail_page .frees,
+.detail_page .info,
+.detail_page .resources {
+  padding: 10px 15px;
+  background: white;
 }
-.detail_page .desc p {
+.detail_page .tags {
+  padding-top: 0;
+}
+.detail_page .frees {
+  border-top: 1px solid #dddddd;
+}
+.detail_page .frees,
+.detail_page .info {
+  margin-bottom: 10px;
+}
+.detail_page .frees p {
   margin-left: 40px;
   line-height: 18px;
   font-size: 12px;
 }
-.detail_page .desc i {
+.detail_page .frees i {
   float: left;
   margin-top: 3px;
   padding: 2px 3px;
   color: #ff7d13;
   border: 1px solid #ff7d13;
+}
+.detail_page .info h3 {
+  padding: 10px 0;
+  border-bottom: 1px solid #dddddd;
+}
+.detail_page .info ul {
+  margin: 10px 0;
+  padding: 0 15px;
+}
+.detail_page .info ul li {
+  margin: 10px 0;
+  font-size: 14px;
+  line-height: 16px;
+  list-style-type: disc;
+}
+.detail_page .info ul li a {
+  color: #333333;
+}
+.detail_page .info ul li a :hover {
+  text-decoration: none;
+}
+.detail_page .resources > h3 {
+  line-height: 18px;
+  padding: 3px 0;
 }

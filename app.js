@@ -26,12 +26,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'prototypes')));
+//app.use(express.static(path.join(__dirname, 'prototypes')));
 
 app.use('/', indexes);
 app.use('/', products);
 
-//app.use('/', require('./middlewares/appHandler'));
+app.use('/', require('./middlewares/appHandler'));
 
 var errorHandlers = require('./middlewares/errorHandlers');
 app.use(errorHandlers.handle404);

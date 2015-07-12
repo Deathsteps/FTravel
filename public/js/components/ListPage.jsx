@@ -1,6 +1,7 @@
 var React = require('react');
 var Promise = require('bluebird');
 
+var Header = require('./Header');
 var Product = require('./Product');
 var ProductStore = require('../stores/ProductStore');
 
@@ -23,6 +24,7 @@ var ListPage = React.createClass({
     },
 
 	componentDidMount: function() {
+		Header.set({ title: 'List' });
 		ProductStore.on('list-fetched', this._onProductsFetched);
 		!this.state.data && ProductStore.findByPage({PageIndex: 1});
 	},
