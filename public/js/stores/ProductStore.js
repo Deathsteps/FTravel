@@ -1,9 +1,8 @@
-var _ = require('lodash');
 var Promise = require('bluebird');
 
 var Store = require('./Store');
 
-var ProductStore = _.assign({}, Store, {
+var ProductStore = Store.create({
 
 	LIST_CACHE_KEY: 'PRODUCTS',
 	DETAIL_CHACHE_KEY: 'PRODUCT_DETAILS',

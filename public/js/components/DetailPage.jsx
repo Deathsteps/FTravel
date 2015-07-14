@@ -4,12 +4,13 @@ var _ = require('lodash');
 
 var Header = require('./Header');
 var ProductStore = require('../stores/ProductStore');
+var PriceCalendar = require('./PriceCalendar');
 
 var DetailPage = React.createClass({
 	statics: {
 		fetchInitialData: function (params) {
 			return new Promise(function (resolve, reject) {
-				ProductStore.findOne({ProductID: params.id})
+				ProductStore.findOne({ProductID: +params.id})
 					.then( (res) => resolve({key: ProductStore.DETAIL_CHACHE_KEY, content: res.text()}) );
 			});
 		}
@@ -17,14 +18,14 @@ var DetailPage = React.createClass({
 
 	getInitialState: function () {
 		return {
-			productData: ProductStore.findOne({ProductID: this.props.params.id}, true)
+			productData: ProductStore.findOne({ProductID: +this.props.params.id}, true)
 		};
 	},
 
 	componentDidMount: function() {
 		Header.set({ title: 'Detail' });
 		ProductStore.on('detail-fetched', this._onDetailFetched);
-		!this.state.productData && ProductStore.findOne({ProductID: this.props.params.id});
+		!this.state.productData && ProductStore.findOne({ProductID: +this.props.params.id});
 	},
 
 	componentWillUnMount: function () {
@@ -113,6 +114,10 @@ var DetailPage = React.createClass({
 				  {frees}
 				  {recommends}
 				  <div className="resources">
+          			<h3>最近低价</h3>
+          			<PriceCalendar 
+          				productId={+this.props.params.id}
+	          			range={{Start:'2015-07-10', End:'2015-09-13'}}/>
 				  </div>
 				  {fees}
 				</div>

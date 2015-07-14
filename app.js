@@ -10,9 +10,6 @@ require("node-jsx").install({
   extension: ".jsx"
 });
 
-var indexes = require('./routes/index');
-var products = require('./routes/product');
-
 var app = express();
 
 // view engine setup
@@ -28,8 +25,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 //app.use(express.static(path.join(__dirname, 'prototypes')));
 
-app.use('/', indexes);
-app.use('/', products);
+app.use('/', require('./routes/index'));
+app.use('/', require('./routes/product'));
+app.use('/', require('./routes/price'));
 
 app.use('/', require('./middlewares/appHandler'));
 

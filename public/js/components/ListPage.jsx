@@ -35,6 +35,8 @@ var ListPage = React.createClass({
 
     render: function () {
     	if(this.state.data){
+    		// to do data paging
+
 	    	return (
 				<div className="list_page">
 			        <section className="ads">Advertisements</section>

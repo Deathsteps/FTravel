@@ -7,6 +7,8 @@ var IS_CLIENT = typeof window !== 'undefined';
 
 var Store = _.assign({}, EventEmitter.prototype, {
 
+	CACHE_KEY: '',
+
 	clientSide: IS_CLIENT,
 
 	_fetch: fetch,
@@ -53,7 +55,32 @@ var Store = _.assign({}, EventEmitter.prototype, {
 	},
 
 	_errorHandler: function (error) {
+		// to do
+	},
+
+	// common find action
+	find: function (query, fromCache) {
+		var cache = this._getFromCache(this.CACHE_KEY);
+		if(fromCache) return cache;
+
+		return (
+			this._fetch('/' + this.name, {
+				method: 'POST',
+				headers: {'Content-Type': 'application/json'},
+				body: JSON.stringify(query)
+			}).then(function (res) {
+				var data = res.json();
+				this.emit( this.name + '-fetched', data);
+				this._setCache(this.CACHE_KEY, data);
+				// for passing data to next then function
+				return Promise.resolve(res);
+			}.bind(this))
+		);
 	}
 });
+
+Store.create = function (properties) {
+	return _.assign({}, this, properties);
+};
 
 module.exports = Store;

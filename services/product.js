@@ -6,7 +6,10 @@ exports.findOne = function (query, callback) {
 	if(!query) callback(null);
 
 	MongoClient.connect(CONNECT_STRING, function(err, db) {
-		if(err) callback(err);
+		if(err){
+			callback(err);
+			db.close();
+		}
 		
 		db.collection('products').findOne(
 			query,
@@ -21,7 +24,10 @@ exports.findOne = function (query, callback) {
 var PAGE_SIZE = 7;
 
 exports.findByPage = function (pageQuery, callback) {
-	if(!pageQuery) callback(null, []);
+	if(!pageQuery){
+		callback(null, []);
+		db.close();
+	}
 
 	MongoClient.connect(CONNECT_STRING, function(err, db) {
 		if(err) callback(err);

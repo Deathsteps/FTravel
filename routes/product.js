@@ -10,7 +10,6 @@ var productService = require('../services/product');
 
 var router = express.Router();
 
-/* GET home page. */
 router.get('/product', function(req, res, next) {
 	if (req.headers['content-type'] === 'application/json') {
 		productService.findByPage({

@@ -19,10 +19,13 @@
 .hidden {
   display: none !important;
 }
+.disable {
+  color: @color-disable;
+}
 
-.transition(@property: all, @duration: 0.2s, @timing-function: ease-in-out, @delay: 0){
-	transition: @property @duration @timing-function @delay;
-	-moz-transition: @property @duration @timing-function @delay; /* Firefox 4 */
-	-webkit-transition: @property @duration @timing-function @delay; /* Safari 和 Chrome */
-	-o-transition: @property @duration @timing-function @delay; /* Opera */
+.transition(@property: all, @duration: 0.2s, @timing-function: ease-in-out){
+	transition: @property @duration @timing-function;
+	-moz-transition: @property @duration @timing-function; /* Firefox 4 */
+	-webkit-transition: @property @duration @timing-function; /* Safari 和 Chrome */
+	-o-transition: @property @duration @timing-function; /* Opera */
 }
