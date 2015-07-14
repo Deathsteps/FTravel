@@ -1,0 +1,169 @@
+.clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+.clearfix{
+	.clearfix();
+}
+
+
+.invisible {
+  visibility: hidden;
+}
+.hidden {
+  display: none !important;
+}
+.disable {
+  color: @color-disable;
+}
+
+.transition(@property: all, @duration: 0.2s, @timing-function: ease-in-out){
+	transition: @property @duration @timing-function;
+	-moz-transition: @property @duration @timing-function; /* Firefox 4 */
+	-webkit-transition: @property @duration @timing-function; /* Safari 和 Chrome */
+	-o-transition: @property @duration @timing-function; /* Opera */
+}
+
+/*--------------Components---------------*/
+
+.btn {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid transparent;
+  white-space: nowrap;
+  border-radius: 5px;
+
+  &:active {
+    outline: 0;
+    background-image: none;
+  }
+
+  &.disabled {
+    background: @color-disable;
+    color: white;
+  }
+
+}
+
+.price {
+  color: @color-widget;
+  font-size: @font-size-emphasis;
+
+  dfn{
+    margin-right: @padding-icon;
+    font-size: @font-size-small;
+  }
+}
+
+.calendar {
+  padding-top: @padding-icon;
+
+  ul {
+    width: 100%;
+    .clearfix();
+
+    li {
+      float: left;
+      padding: @padding-icon 0;
+      width: 14.28%;
+      font-size: @font-size-base;
+      line-height: @font-size-base + 2; 
+      text-align: center;
+    }
+  }
+
+  .weekday {
+    font-size: @font-size-small;
+    line-height: @line-height;
+    color: lighten(@color-font, 30%)
+  }
+
+  .title {
+    padding: @padding-item 0;
+    font-size: @font-size-emphasis;
+
+    span {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .days {
+    li{
+      height: @base-size;
+      font-size: @font-size-small;
+    }
+
+    .disable{
+      color: @color-disable;
+    }
+
+    em {
+      display: block;
+      i {
+        display: block;
+        padding-top: @padding-icon;
+        color: @color-widget;
+      }
+    }
+  }
+}
+
+.num_selector {
+  display: inline-block;
+
+  span, input {
+    display: inline-block;
+    width: @base-size - 12;
+    height: @base-size - 12;
+    line-height: @base-size - 12;
+    text-align: center;
+    vertical-align: top;
+  }
+
+
+
+  .operater, input {
+    border: 1px solid @color-border;
+  }
+
+  .operater {
+    font-weight: bold;
+    font-size: @font-size-emphasis;
+    color: @color-main;
+
+    &:nth-last-child(1){
+      border-top-right-radius: 1px;
+      border-bottom-right-radius: 1px;
+    }
+    &:nth-last-child(2){
+      border-top-left-radius: 1px;
+      border-bottom-left-radius: 1px;
+    }
+  }
+
+  input {
+    border-left: none;
+    border-right: none;
+  }
+}
+
+.footer_bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: @padding-item 0;
+  border-top: 1px solid @color-border;
+  background-color: white;
+}
