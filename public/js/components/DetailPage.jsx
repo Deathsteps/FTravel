@@ -23,12 +23,13 @@ var DetailPage = React.createClass({
 	},
 
 	componentDidMount: function() {
-		Header.set({ title: 'Detail' });
 		ProductStore.on('detail-fetched', this._onDetailFetched);
 		!this.state.productData && ProductStore.findOne({ProductID: +this.props.params.id});
+
+		Header.set({ title: 'Detail' });
 	},
 
-	componentWillUnMount: function () {
+	componentWillUnmount: function () {
 		ProductStore.off('detail-fetched', this._onDetailFetched);
 	},
 

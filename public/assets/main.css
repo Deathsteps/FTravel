@@ -210,10 +210,39 @@ html { overflow-y: scroll; }/* ------- color -------*/
 .footer_bar {
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
   padding: 10px 0;
   border-top: 1px solid #dddddd;
   background-color: white;
+}
+.animated_pages {
+  position: relative;
+}
+.page-enter,
+.page-leave {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  transition: left 0.3s ease-in-out;
+  -moz-transition: left 0.3s ease-in-out;
+  /* Firefox 4 */
+  -webkit-transition: left 0.3s ease-in-out;
+  /* Safari 和 Chrome */
+  -o-transition: left 0.3s ease-in-out;
+  /* Opera */
+}
+.page-enter {
+  left: 100%;
+}
+.page-enter.page-enter-active {
+  left: 0;
+}
+.page-leave {
+  left: 0;
+}
+.page-leave.page-leave-active {
+  left: -100%;
 }
 /* ----------Components--------- */
 h1 {
@@ -234,8 +263,16 @@ i {
   font-style: normal;
   font-weight: 400;
 }
+body {
+  font: 14px "Tahoma", Helvetica, Arial, sans-serif;
+}
 /* ----------Site--------- */
 header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 200;
   background: #099fde;
   color: white;
 }
@@ -262,6 +299,9 @@ header .back {
 }
 header .home {
   right: 0;
+}
+.main {
+  margin-top: 44px;
 }
 /*-----------Page------------*/
 .list_page {
@@ -414,7 +454,7 @@ header .home {
 }
 .route_page .calendar:last-child {
   border-bottom: 2px solid #099fde;
-  margin-bottom: 118.8px;
+  margin-bottom: 109px;
 }
 .route_page .num_selector {
   width: 48%;

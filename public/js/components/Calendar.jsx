@@ -84,7 +84,7 @@ var Calendar = React.createClass({
 		
 	},
 
-	componentWillUnMount: function () {
+	componentWillUnmount: function () {
 		
 	},
 

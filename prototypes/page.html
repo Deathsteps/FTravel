@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv='Content-type' content='text/html; charset=utf-8'>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <title>List</title>
+    <link type="text/css" rel="stylesheet/less" href="styles/site.less"></link>
+    <script type="text/javascript" src="less.min.js"></script>
+    <style>
+      .test_page { height: 800px; color: white; font-size: 72px; text-align: center; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <span class="back">Back</span>
+      <h1>List</h1>
+      <span class="home">Home</span>
+    </header>
+    <div class="main">
+      <div class="animated_pages">
+        <div id="page1" class="test_page" style="background: orange;">
+          LEFT
+        </div>
+        <div id="page2" class="test_page" style="background: yellow;">
+          RIGHT
+        </div>
+      </div>
+    </div>
+    <footer></footer>
+    <script type="text/javascript">
+    var page1 = document.getElementById('page1');
+    var page2 = document.getElementById('page2');
+    setTimeout(function () {
+      page1.className += ' page-leave';
+      page2.className += ' page-enter';
+    }, 2000);
+    setTimeout(function () {
+      page1.className += ' page-leave-active';
+      page2.className += ' page-enter-active';
+    }, 2100);
+    </script>
+  </body>
+</html>

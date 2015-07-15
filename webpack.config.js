@@ -13,6 +13,9 @@ module.exports = [{
       test: /\.jsx$/,
       loader: "jsx-loader?harmony"
     },{
+      test: /\.css$/,
+      loader: "css-loader"
+    },{
       test: /\.less$/,
       loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
     }]

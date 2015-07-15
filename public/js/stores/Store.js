@@ -79,6 +79,8 @@ var Store = _.assign({}, EventEmitter.prototype, {
 	}
 });
 
+Store.off = Store.removeListener;
+
 Store.create = function (properties) {
 	return _.assign({}, this, properties);
 };

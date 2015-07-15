@@ -56,7 +56,7 @@ var PriceCalendar = React.createClass({
 			DateRange: this.props.range});
 	},
 
-	componentWillUnMount: function () {
+	componentWillUnmount: function () {
 		PriceStore.off('price-fetched', this._onPriceFetched);
 	},
 

@@ -26,9 +26,18 @@ em, i {
   font-weight: 400;
 }
 
+body {
+	font: @font-size-base "Tahoma", Helvetica, Arial, sans-serif;
+}
+
 /* ----------Site--------- */
 
 header {
+	position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 200;
 	background: @color-main;
 	color: white;
 
@@ -56,6 +65,11 @@ header {
 		right: 0;
 	}
 }
+
+.main {
+	margin-top: @base-size;
+}
+
 
 /*-----------Page------------*/
 
@@ -177,7 +191,7 @@ header {
 			}
 		}
 		&:nth-last-child(2) {
-			margin-bottom: @padding-bottom;
+			margin-bottom: 66px;
 		}
 	}
 
@@ -219,7 +233,7 @@ header {
   		
   		&:last-child{
   			border-bottom: 2px solid @color-main;
-  			margin-bottom: @padding-bottom * 1.8;
+  			margin-bottom: 109px;
   		}
 	}
 

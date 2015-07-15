@@ -24,8 +24,7 @@ var RoutePage = React.createClass({
 
 	},
 
-	componentWillUnMount: function () {
-		
+	componentWillUnmount: function () {
 	},
 
 	render: function () {

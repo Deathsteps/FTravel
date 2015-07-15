@@ -17,6 +17,7 @@ var RouteManager = _.assign({}, EventEmitter.prototype, {
 			return (_notFoundPage = pattern);
 
 		var route = {
+			key: pattern, // use the plain pattern as the route key
 			pattern: this._parsePattern(pattern),
 			component: component
 		};
@@ -55,7 +56,7 @@ var RouteManager = _.assign({}, EventEmitter.prototype, {
 
 			if(matches){
 				matches.shift();
-				var ret = {component: route.component, params: _.toArray(matches)};
+				var ret = {component: route.component, params: _.toArray(matches), key: route.key};
 				// fill in parameters
 				if(route.pattern.params)
 					ret.params.forEach(function (item, i) {

@@ -24,12 +24,13 @@ var ListPage = React.createClass({
     },
 
 	componentDidMount: function() {
-		Header.set({ title: 'List' });
 		ProductStore.on('list-fetched', this._onProductsFetched);
 		!this.state.data && ProductStore.findByPage({PageIndex: 1});
+		
+		Header.set({ title: 'List' });
 	},
 
-	componentWillUnMount: function () {
+	componentWillUnmount: function () {
 		ProductStore.off('list-fetched', this._onProductsFetched);
 	},
 
