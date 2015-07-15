@@ -1,108 +1,9 @@
 @import "reset.css";
 @import "variables.less";
-@import "mixins.less";
+@import "common.less";
 
 /* ----------Components--------- */
-.btn {
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  touch-action: manipulation;
-  cursor: pointer;
-  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-  border: 1px solid transparent;
-  white-space: nowrap;
 
-  &:active {
-    outline: 0;
-    background-image: none;
-  }
-
-  &.disabled {
-  	background: @color-disable;
-  	color: white;
-  }
-
-}
-
-.price {
-	color: @color-widget;
-	font-size: @font-size-emphasis;
-
-	dfn{
-		margin-right: @padding-icon;
-		font-size: @font-size-small;
-	}
-}
-
-.calendar {
-	border-top: 2px solid @color-main;
-	border-bottom: 2px solid @color-main;
-	padding-top: @padding-icon;
-
-	ul {
-		width: 100%;
-		.clearfix();
-
-		li {
-			float: left;
-			padding: @padding-icon 0;
-			width: 14.28%;
-			font-size: @font-size-base;
-			line-height: @font-size-base + 2; 
-			text-align: center;
-		}
-	}
-
-	.weekday {
-		font-size: @font-size-small;
-		line-height: @line-height;
-		color: lighten(@color-font, 30%)
-	}
-
-	.title {
-		padding: @padding-item 0;
-		font-size: @font-size-emphasis;
-		.clearfix();
-
-		span, .prev, .next {
-			float: left;
-			text-align: center;
-		}
-
-		.prev, .next{
-			width: 15%;
-			cursor: pointer;
-			&:hover{
-				text-decoration: none;
-			}
-		}
-
-		span {
-			width: 70%;
-		}
-	}
-
-	.days {
-		li{
-			height: @base-size;
-			font-size: @font-size-small;
-		}
-
-		.disable{
-			color: @color-disable;
-		}
-
-		em {
-			display: block;
-			i {
-				display: block;
-				padding-top: @padding-icon;
-				color: @color-widget;
-			}
-		}
-	}
-}
 
 h1 {
 	font-weight: bold;
@@ -222,7 +123,7 @@ header {
 		img {width: 100%;}
 	}
 
-	h1, .tags, .frees, .info, .resources { 
+	h1, .tags, .frees, .info { 
 		padding: @padding-item @padding-side; background: white; 
 	}
 
@@ -275,33 +176,72 @@ header {
 				}
 			}
 		}
-	}
-
-	.resources {
-		>h3 {
-			line-height: @line-height;
-			padding: @padding-icon 0;
-		}
-
-		.calendar_container {
-			position: relative;
-			width: 100%;
-			height: 370px;
-			overflow: hidden;
-
-			.calendar {
-				width: 100%;
-				position: absolute;
-				left: 100%;
-				background-color: white;
-				.transition(left, 0.5s);
-				
-				&:first-child{
-					left: 0;
-				}
-			}
+		&:nth-last-child(2) {
+			margin-bottom: @padding-bottom;
 		}
 	}
+
+	.book {
+
+		.collect, .start_book {
+			display: inline-block;
+			height: @base-size;
+			margin-left: @padding-item;
+			padding: 0 @padding-item;
+			font-size: @font-size-base;
+		}
+
+		.collect {
+			width: 20%;
+			background: white;
+			color: @color-widget;
+			border: 1px solid @color-border;
+		}
+
+		.start_book {
+			width: 70%;
+			background: @color-widget;
+			color: white;
+			border: 1px solid darken(@color-widget, 10%)
+		}
+	}
+}
+
+.route_page {
+	h1{
+		width: 100%;
+		padding: @padding-item 0;
+		text-align: center;
+	}
+
+	.calendar{
+		border-top: 2px solid lighten(@color-main, 10%);
+  		
+  		&:last-child{
+  			border-bottom: 2px solid @color-main;
+  			margin-bottom: @padding-bottom * 1.8;
+  		}
+	}
+
+	.num_selector {
+		width: 48%;
+		text-align: center;
+	}
+
+	.book{
+		text-align: center;
+		padding-top: @padding-item;
+
+		.start_book{
+			width: 80%;
+			height: @base-size;
+			background-color: @color-widget;
+			color: white;
+			border-color: darken(@color-widget, 10%);
+			font-size: @font-size-base;
+		}	
+	}
+	
 }
 
 footer {

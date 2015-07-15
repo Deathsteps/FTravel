@@ -4,7 +4,7 @@ var _ = require('lodash');
 
 var Header = require('./Header');
 var ProductStore = require('../stores/ProductStore');
-var PriceCalendar = require('./PriceCalendar');
+var PageHelper = require('../libs/PageHelper');
 
 var DetailPage = React.createClass({
 	statics: {
@@ -34,6 +34,10 @@ var DetailPage = React.createClass({
 
 	_onDetailFetched: function (data) {
 		this.setState({ productData: data });
+	},
+
+	_onStartBooking: function () {
+		PageHelper.forward('/route/'+this.props.params.id);
 	},
 
 	_renderFrees: function (productData) {
@@ -113,13 +117,11 @@ var DetailPage = React.createClass({
 				  </div>
 				  {frees}
 				  {recommends}
-				  <div className="resources">
-          			<h3>最近低价</h3>
-          			<PriceCalendar 
-          				productId={+this.props.params.id}
-	          			range={{Start:'2015-07-10', End:'2015-09-13'}}/>
-				  </div>
 				  {fees}
+				  <div className="book footer_bar">
+				    <button className="collect btn">收藏</button>
+				    <button className="start_book btn" onClick={this._onStartBooking}>立即预订</button>
+				  </div>
 				</div>
 			);
 		}else{

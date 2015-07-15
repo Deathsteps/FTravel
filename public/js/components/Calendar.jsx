@@ -7,7 +7,7 @@ var DATE = {
 	TOMORROW: '明天',
 	DAY_AFTER_TOMORROW: '后天'
 };
-
+// calculate the dates of the specified year-month
 function calendar (year, month) {
 	var date = moment({year: year, month: month, day: 1});
 	date = date.subtract(date.get('day'), 'd');
@@ -21,7 +21,7 @@ function calendar (year, month) {
 	}
 	return ret;
 }
-
+// calculate the some special dates: like today, holiday, etc
 function keyDates () {
 	var date = new Date();
 	//var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
@@ -88,26 +88,18 @@ var Calendar = React.createClass({
 		
 	},
 
-	_renderTitle: function () {
-		// Default Calendar Title
-		return this.props.children ? this.props.children :
-			(<div className="title">
-				<span>{this.props.year + '-' + this.props.month}</span>
-			</div>);		
-	},
-
 	render: function () {
 		// To do:
 		// If the dayComponent is not given, a default one should be provided.
-
-		var title = this._renderTitle();
 
 		return (
 		<div className="calendar">
 			<ul className="weekday">
 			  <li>日</li><li>一</li><li>二</li><li>三</li><li>四</li><li>五</li><li>六</li>
 			</ul>
-			{title}
+			<div className="title">
+				<span>{this.props.year + '年' + (this.props.month+1) + '月'}</span>
+			</div>
 			<ul className="days">
 			  {this.state.data.map((item)=>{
 			  	return React.createElement(this.props.dayComponent, {data: item});

@@ -5,10 +5,12 @@ var RouteManager = require('./libs/RouteManager');
 var NotFoundPage = require('./components/NotFoundPage');
 var ListPage     = require('./components/ListPage');
 var DetailPage   = require('./components/DetailPage');
+var RoutePage    = require('./components/RoutePage');
 
 RouteManager.register(NotFoundPage);
 RouteManager.register('/product', ListPage);
 RouteManager.register('/product/:id', DetailPage);
+RouteManager.register('/route/:productId', RoutePage);
 
 if(typeof window !== 'undefined'){
 	require('../css/site.less');

@@ -41,23 +41,6 @@ var CalendarDay = React.createClass({
 	}
 });
 
-var CalendarTitle = React.createClass({
-	render: function () {
-		var prev, next;
-		prev = this.props.onPrev ? 
-			<a className="prev" onClick={this.props.onPrev}>&lt;</a> :
-			<a className="prev disable">&lt;</a>;
-		next = this.props.onNext ?
-			<a className="next" onClick={this.props.onNext}>&gt;</a> :
-			<a className="next disable">&gt;</a>;
-		return (
-			<div className="title">
-				{prev}<span>{this.props.content}</span>{next}
-			</div>
-		);
-	}
-});
-
 var PriceCalendar = React.createClass({
 
 	getInitialState: function () {
@@ -83,34 +66,30 @@ var PriceCalendar = React.createClass({
 		});
 	},
 
-	// manipulate DOM to switch calendars in an animate way
-	// switch to prev month
-	_onPrevMonth: function () {
-		React.findDOMNode(this.refs["calendar" + this._showIndex]).style.left = '';
-		this._showIndex --;
-	},
-	// switch to next month
-	_onNextMonth: function () {
-		this._showIndex = this._showIndex || 0;
-		this._showIndex ++;
-		React.findDOMNode(this.refs["calendar" + this._showIndex]).style.left = 0;
-	},
+	// // manipulate DOM to switch calendars in an animate way
+	// // switch to prev month
+	// _onPrevMonth: function () {
+	// 	React.findDOMNode(this.refs["calendar" + this._showIndex]).style.left = '';
+	// 	this._showIndex --;
+	// },
+	// // switch to next month
+	// _onNextMonth: function () {
+	// 	this._showIndex = this._showIndex || 0;
+	// 	this._showIndex ++;
+	// 	React.findDOMNode(this.refs["calendar" + this._showIndex]).style.left = 0;
+	// },
 
 	render: function () {
 		if(this.state.data){
 			return (
 				<div className="calendar_container">
 					{this.state.calendars.map((item, i) => {
-					var props = { content: item.year + '年' + (item.month + 1) + '月' };
-					!item.isFirst && (props.onPrev = this._onPrevMonth);
-					!item.isLast && (props.onNext = this._onNextMonth);
 					return (
 						<Calendar ref={"calendar" + i}
 							dayComponent={CalendarDay} 
 							extraData={this.state.data}
 							year={item.year}
 							month={item.month}>
-							<CalendarTitle {...props}/>
 						</Calendar>	
 					);
 					})}
