@@ -10,6 +10,7 @@ var ProductStore = Store.create({
 	findByPage: function (pageQuery, fromCache) {
 		var cache = this._getFromCache(this.LIST_CACHE_KEY);
 		if(fromCache) return cache;
+		if(cache) return this._promiseCache(cache);
 
 		return (
 			this._fetch('/product', {
@@ -27,9 +28,11 @@ var ProductStore = Store.create({
 
 	findOne: function (query, fromCache) {
 		var cache = this._getFromCache(this.DETAIL_CHACHE_KEY);
-		if(fromCache) {
+		if(fromCache)
 			return (cache && cache.ProductID == query.ProductID) ? cache : null;
-		}
+		if(cache && cache.ProductID == query.ProductID)
+			return this._promiseCache(cache);
+
 		return (
 			this._fetch('/product/' + query.ProductID, {
 				headers: {'Content-Type': 'application/json'}

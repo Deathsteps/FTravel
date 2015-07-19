@@ -31,6 +31,7 @@ var DetailPage = React.createClass({
 
 	componentWillUnmount: function () {
 		ProductStore.off('detail-fetched', this._onDetailFetched);
+		window.scrollTo(0, 0);
 	},
 
 	_onDetailFetched: function (data) {

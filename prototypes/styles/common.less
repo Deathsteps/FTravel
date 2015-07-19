@@ -9,7 +9,7 @@
   }
 }
 .clearfix{
-	.clearfix();
+  .clearfix();
 }
 
 
@@ -24,14 +24,19 @@
 }
 
 .transition(@property: all, @duration: 0.2s, @timing-function: ease-in-out){
-	transition: @property @duration @timing-function;
-	-moz-transition: @property @duration @timing-function; /* Firefox 4 */
-	-webkit-transition: @property @duration @timing-function; /* Safari 和 Chrome */
-	-o-transition: @property @duration @timing-function; /* Opera */
+  transition: @property @duration @timing-function;
+  -moz-transition: @property @duration @timing-function; /* Firefox 4 */
+  -webkit-transition: @property @duration @timing-function; /* Safari 和 Chrome */
+  -o-transition: @property @duration @timing-function; /* Opera */
 }
 
-/*--------------Animations---------------*/
-
+.transform(@transform){
+  -webkit-transform: @transform;
+  -moz-transform: @transform;
+  -ms-transform: @transform;
+  -o-transform: @transform;
+  transform: @transform;
+}
 
 /*--------------Components---------------*/
 
@@ -172,29 +177,38 @@
   background-color: white;
 }
 
+
 .animated_pages {
-  position: relative;
+
 }
 
 .page-enter, .page-leave {
-  position: absolute;
   top: 0;
   width: 100%;
-  .transition(left, .3s);
+  .transition(transform, .3s);
+  /* Eliminate the flickering of the transition*/
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
 }
 
 .page-enter {
-  left: 100%;
+  .transform(translate3d(100%, 0, 0));
 }
 
 .page-enter.page-enter-active {
-  left: 0;
+  .transform(translate3d(0, 0, 0));
 }
 
 .page-leave {
-  left: 0;
+  .transform(translate3d(0, 0, 0));
 }
 
 .page-leave.page-leave-active {
-  left: -100%;
+  .transform(translate3d(-100%, 0, 0));
 }

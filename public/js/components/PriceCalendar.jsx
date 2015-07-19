@@ -44,16 +44,20 @@ var CalendarDay = React.createClass({
 var PriceCalendar = React.createClass({
 
 	getInitialState: function () {
+		var data = 
+			PriceStore.find({ProductID: this.props.productId, 
+				DateRange: this.props.range}, true);
 		return {
-			data: null,
+			data: data ? data.Prices : null,
 			calendars: calendarInfos(this.props.range)
 		}
 	},
 
 	componentDidMount: function () {
 		PriceStore.on('price-fetched', this._onPriceFetched);
-		PriceStore.find({ProductID: this.props.productId, 
-			DateRange: this.props.range});
+		if(!this.state.data)
+			PriceStore.find({ProductID: this.props.productId, 
+				DateRange: this.props.range});
 	},
 
 	componentWillUnmount: function () {
@@ -62,7 +66,7 @@ var PriceCalendar = React.createClass({
 
 	_onPriceFetched: function (data) {
 		this.setState({
-			data: data
+			data: data.Prices
 		});
 	},
 

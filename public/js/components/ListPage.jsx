@@ -18,10 +18,10 @@ var ListPage = React.createClass({
 	},
 
 	getInitialState: function () {
-        return {
-            data: ProductStore.findByPage({PageIndex: 1}, true)
-        };
-    },
+      return {
+          data: ProductStore.findByPage({PageIndex: 1}, true)
+      };
+  },
 
 	componentDidMount: function() {
 		ProductStore.on('list-fetched', this._onProductsFetched);
@@ -32,6 +32,7 @@ var ListPage = React.createClass({
 
 	componentWillUnmount: function () {
 		ProductStore.off('list-fetched', this._onProductsFetched);
+		window.scrollTo(0, 0);
 	},
 
     render: function () {

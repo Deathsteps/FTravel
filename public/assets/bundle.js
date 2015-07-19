@@ -112,10 +112,10 @@
 		},
 
 		getInitialState: function () {
-	        return {
-	            data: ProductStore.findByPage({PageIndex: 1}, true)
-	        };
-	    },
+	      return {
+	          data: ProductStore.findByPage({PageIndex: 1}, true)
+	      };
+	  },
 
 		componentDidMount: function() {
 			ProductStore.on('list-fetched', this._onProductsFetched);
@@ -126,6 +126,7 @@
 
 		componentWillUnmount: function () {
 			ProductStore.off('list-fetched', this._onProductsFetched);
+			window.scrollTo(0, 0);
 		},
 
 	    render: function () {
@@ -38505,7 +38506,7 @@
 
 
 	// module
-	exports.push([module.id, ".page-enter, .page-leave {\n  position: absolute;\n  top: 0;\n  width: 100%;\n  transition: left .3s ease-in-out;\n\t-moz-transition: left .3s ease-in-out; /* Firefox 4 */\n\t-webkit-transition: left .3s ease-in-out; /* Safari 和 Chrome */\n\t-o-transition: left .3s ease-in-out; /* Opera */\n}\n\n.page-enter {\n  left: -100%;\n}\n\n.page-enter.page-enter-active {\n  left: 0;\n}\n\n.page-leave {\n\tleft: 0;\n}\n\n.page-leave.page-leave-active {\n  left: 100%;\n}", ""]);
+	exports.push([module.id, ".page-enter {\n  -webkit-transform: translate3d(-100%, 0, 0);\n  -moz-transform: translate3d(-100%, 0, 0);\n  -ms-transform: translate3d(-100%, 0, 0);\n  -o-transform: translate3d(-100%, 0, 0);\n  transform: translate3d(-100%, 0, 0);\n}\n\n.page-enter.page-enter-active {\n  -webkit-transform: translate3d(0, 0, 0);\n  -moz-transform: translate3d(0, 0, 0);\n  -ms-transform: translate3d(0, 0, 0);\n  -o-transform: translate3d(0, 0, 0);\n  transform: translate3d(0, 0, 0);\n}\n\n.page-leave {\n\t-webkit-transform: translate3d(0, 0, 0);\n  -moz-transform: translate3d(0, 0, 0);\n  -ms-transform: translate3d(0, 0, 0);\n  -o-transform: translate3d(0, 0, 0);\n  transform: translate3d(0, 0, 0);\n}\n\n.page-leave.page-leave-active {\n  -webkit-transform: translate3d(100%, 0, 0);\n  -moz-transform: translate3d(100%, 0, 0);\n  -ms-transform: translate3d(100%, 0, 0);\n  -o-transform: translate3d(100%, 0, 0);\n  transform: translate3d(100%, 0, 0);\n}", ""]);
 
 	// exports
 
@@ -38617,6 +38618,7 @@
 		findByPage: function (pageQuery, fromCache) {
 			var cache = this._getFromCache(this.LIST_CACHE_KEY);
 			if(fromCache) return cache;
+			if(cache) return this._promiseCache(cache);
 
 			return (
 				this._fetch('/product', {
@@ -38634,9 +38636,11 @@
 
 		findOne: function (query, fromCache) {
 			var cache = this._getFromCache(this.DETAIL_CHACHE_KEY);
-			if(fromCache) {
+			if(fromCache)
 				return (cache && cache.ProductID == query.ProductID) ? cache : null;
-			}
+			if(cache && cache.ProductID == query.ProductID)
+				return this._promiseCache(cache);
+
 			return (
 				this._fetch('/product/' + query.ProductID, {
 					headers: {'Content-Type': 'application/json'}
@@ -38697,16 +38701,20 @@
 			return cacheData.expire < Date.now() ? null : cacheData.data;
 		},
 
-		_setCache: function (key, data, expire) {
+		_setCache: function (key, data, expire, serverExpire) {
 			// Client side default expire time: 1 day
 			// Server side default expire time: 1 second
 			if(!expire)
-				expire = IS_CLIENT ? (1 * 24 * 60 * 60 * 1000) : 60;
+				expire = 1 * 24 * 60 * 60 * 1000;
+			if(!serverExpire)
+				serverExpire = 1000;
 
-			data = {data: data, expire: new Date(Date.now() + expire)};
+			data = {data: data};
 			if(IS_CLIENT){
+				data.expire = new Date(Date.now() + expire);
 				window.localStorage.setItem(key, JSON.stringify(data));
 			}else{
+				data.expire = new Date(Date.now() + serverExpire);
 				this._serverCache = data;
 			}
 		},
@@ -38719,10 +38727,15 @@
 			// to do
 		},
 
+		_promiseCache: function (cache) {
+			return Promise.resolve(new fetch.Response({ jsonBody: cache }));
+		},
+
 		// common find action
 		find: function (query, fromCache) {
 			var cache = this._getFromCache(this.CACHE_KEY);
 			if(fromCache) return cache;
+			if(cache) return this._promiseCache(cache);
 
 			return (
 				this._fetch('/' + this.name, {
@@ -47874,6 +47887,7 @@
 
 		componentWillUnmount: function () {
 			ProductStore.off('detail-fetched', this._onDetailFetched);
+			window.scrollTo(0, 0);
 		},
 
 		_onDetailFetched: function (data) {
@@ -47995,7 +48009,7 @@
 	var RoutePage = React.createClass({displayName: "RoutePage",
 		statics: {
 			fetchInitialData: function (params) {
-				return Promise.resolve({});
+				return Promise.resolve({key: 'NONE'});
 			}
 		},
 
@@ -48011,6 +48025,7 @@
 		},
 
 		componentWillUnmount: function () {
+			window.scrollTo(0, 0);
 		},
 
 		render: function () {
@@ -48088,16 +48103,20 @@
 	var PriceCalendar = React.createClass({displayName: "PriceCalendar",
 
 		getInitialState: function () {
+			var data = 
+				PriceStore.find({ProductID: this.props.productId, 
+					DateRange: this.props.range}, true);
 			return {
-				data: null,
+				data: data ? data.Prices : null,
 				calendars: calendarInfos(this.props.range)
 			}
 		},
 
 		componentDidMount: function () {
 			PriceStore.on('price-fetched', this._onPriceFetched);
-			PriceStore.find({ProductID: this.props.productId, 
-				DateRange: this.props.range});
+			if(!this.state.data)
+				PriceStore.find({ProductID: this.props.productId, 
+					DateRange: this.props.range});
 		},
 
 		componentWillUnmount: function () {
@@ -48106,7 +48125,7 @@
 
 		_onPriceFetched: function (data) {
 			this.setState({
-				data: data
+				data: data.Prices
 			});
 		},
 
@@ -59325,8 +59344,31 @@
 	var Store = __webpack_require__(172);
 
 	var PriceStore = Store.create({
-		name: 'price',
-		CACHE_KEY: 'PRICES'
+		CACHE_KEY: 'PRICES',
+
+		find: function (query, fromCache) {
+			var cache = this._getFromCache(this.CACHE_KEY);
+			if(fromCache)
+				return (cache && cache.ProductID == query.ProductID) ? cache : null;
+			if(cache && cache.ProductID == query.ProductID)
+				return this._promiseCache(cache);
+
+			return (
+				this._fetch('/price', {
+					method: 'POST',
+					headers: {'Content-Type': 'application/json'},
+					body: JSON.stringify(query)
+				}).then(function (res) {
+					var data = res.json();
+					this.emit('price-fetched', data);
+					// the expire time of price cache should be short
+					// here I set 1 minute
+					this._setCache(this.CACHE_KEY, data, 60 * 1000);
+					// for passing data to next then function
+					return Promise.resolve(res);
+				}.bind(this))
+			);	
+		}
 	});
 
 	module.exports = PriceStore;

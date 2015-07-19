@@ -36,16 +36,20 @@ var Store = _.assign({}, EventEmitter.prototype, {
 		return cacheData.expire < Date.now() ? null : cacheData.data;
 	},
 
-	_setCache: function (key, data, expire) {
+	_setCache: function (key, data, expire, serverExpire) {
 		// Client side default expire time: 1 day
 		// Server side default expire time: 1 second
 		if(!expire)
-			expire = IS_CLIENT ? (1 * 24 * 60 * 60 * 1000) : 60;
+			expire = 1 * 24 * 60 * 60 * 1000;
+		if(!serverExpire)
+			serverExpire = 1000;
 
-		data = {data: data, expire: new Date(Date.now() + expire)};
+		data = {data: data};
 		if(IS_CLIENT){
+			data.expire = new Date(Date.now() + expire);
 			window.localStorage.setItem(key, JSON.stringify(data));
 		}else{
+			data.expire = new Date(Date.now() + serverExpire);
 			this._serverCache = data;
 		}
 	},
@@ -58,10 +62,15 @@ var Store = _.assign({}, EventEmitter.prototype, {
 		// to do
 	},
 
+	_promiseCache: function (cache) {
+		return Promise.resolve(new fetch.Response({ jsonBody: cache }));
+	},
+
 	// common find action
 	find: function (query, fromCache) {
 		var cache = this._getFromCache(this.CACHE_KEY);
 		if(fromCache) return cache;
+		if(cache) return this._promiseCache(cache);
 
 		return (
 			this._fetch('/' + this.name, {

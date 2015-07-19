@@ -9,7 +9,7 @@ var PriceCalendar = require('./PriceCalendar');
 var RoutePage = React.createClass({
 	statics: {
 		fetchInitialData: function (params) {
-			return Promise.resolve({});
+			return Promise.resolve({key: 'NONE'});
 		}
 	},
 
@@ -25,6 +25,7 @@ var RoutePage = React.createClass({
 	},
 
 	componentWillUnmount: function () {
+		window.scrollTo(0, 0);
 	},
 
 	render: function () {

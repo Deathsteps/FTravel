@@ -6,11 +6,13 @@ var MongoClient = require('mongodb').MongoClient;
 var CONNECT_STRING = 'mongodb://localhost:27017/travel';
 
 function filterPrices (calendar, dateRange) {
-	if(!dateRange) return calendar.Prices;
+	if(!dateRange) return calendar;
 
-	return _.filter(calendar.Prices, function (item) {
+	calendar.Prices = _.filter(calendar.Prices, function (item) {
 		return moment(item.Date).isBetween(dateRange.Start, dateRange.End);
 	});
+
+	return calendar;
 }
 
 exports.find = function (query, callback) {
