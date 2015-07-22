@@ -45,7 +45,7 @@ header {
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 200;
+  z-index: @z-base;
 	background: @color-main;
 	color: white;
 
@@ -222,9 +222,6 @@ header {
 
 		.start_book {
 			width: 70%;
-			background: @color-widget;
-			color: white;
-			border: 1px solid darken(@color-widget, 10%)
 		}
 	}
 }
@@ -257,9 +254,6 @@ header {
 		.start_book{
 			width: 80%;
 			height: @base-size;
-			background-color: @color-widget;
-			color: white;
-			border-color: darken(@color-widget, 10%);
 			font-size: @font-size-base;
 		}	
 	}
@@ -309,20 +303,17 @@ header {
 			font-size: @font-size-emphasis;
 			font-weight: bold;
 		}
-		.from, .line, .to{
+		.from, .line_space, .to{
 			display: inline-block;
 		}
 		.from {
 			width: 35%;
 		}
-		.line {
+		.line_space {
 			width: 20%;
-			span{
-				display: inline-block;
-				width: 100%;
-				height: 1px;
-				border-top: 1px solid @color-main;
-			}
+		}
+		.line{
+			width: 100%;
 		}
 		.to {
 			margin-left: @padding-item;
@@ -374,13 +365,14 @@ header {
 				margin-left: @padding-item;
 				background-color: white;
 				color: softlight(@color-widget, @color-border);
-				padding: 0 2px;
 				font-weight: bold;
 			}
 		}
 
 		.save_price {
+			padding: 0 2px;
 			font-size: @font-size-small;
+			border: 1px solid white;
 		}
 
 		a{
@@ -390,6 +382,104 @@ header {
 			text-align: center;
 			background-color: @color-widget;
 			color: white;
+		}
+	}
+}
+
+.flight_page{
+	height: 100%;
+	background-color: @color-background;
+
+	.progress{
+		position: fixed;
+		z-index: @z-base;
+		padding: @padding-small @padding-side;
+		width: 100%;
+		box-sizing: content-box;
+		line-height: @line-height;
+		background-color: lighten(@color-filter, 20%);
+		color: white;
+
+		.icon{
+			display: inline-block;
+			background-color: @color-filter;
+			padding: 0 2px;
+			border-radius: 3px;
+			font-size: @font-size-small;
+		}
+		.count{
+			float: right;
+			margin-right: 28px;
+		}
+	}
+
+	ul {
+		padding: 30px 0;
+	}
+
+	li{
+		margin-bottom: @padding-item;
+		padding: 0 @padding-side;
+		border-bottom: 1px solid @color-border;
+		background-color: white;
+	}
+
+	.time {
+		position: relative;
+		padding-top: @padding-item;
+
+		strong {
+			font-size: @font-size-emphasis;
+		}
+		.duration{
+			font-size: @font-size-small;
+			color: lighten(@color-font, 30%);
+		}
+		.price, .price_lower {
+			position: absolute;
+			top: 10px;
+			right: 0;
+		}
+	}
+	.airport{
+		padding-bottom: @padding-item;
+		.clearfix();
+
+		.line{
+			display: block;
+			width: 80%;
+		}
+		.from{
+			float: left;
+			left: 0;
+			top: 0;
+		}
+		.to{
+			float: right;
+			right: 0;
+			top: 0;
+			margin-right: 20%;
+		}
+	}
+	.airline{
+		padding: @padding-icon 0;
+		border-top: 1px solid @color-border;
+	}
+	.cabin{
+		position: relative;
+		padding: @padding-icon 0 @padding-item;
+		border-top: 1px solid @color-border;
+		>span, a {
+			display: block;
+			font-size: @font-size-small;
+		}
+		div{
+			position: absolute;
+			right: 0;
+			top: @padding-small;
+		}
+		.price, .price_lower{
+			vertical-align: middle;
 		}
 	}
 }
