@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"fetc",
+				"fetch"
+			],
+			[
+				"fe",
+				"fetch"
+			],
+			[
+				"Pri",
+				"Prices"
+			],
+			[
+				"cha",
+				"cache"
+			],
+			[
+				"trans",
+				"transform"
+			],
+			[
 				"mar",
 				"margin-top"
 			],
@@ -152,10 +172,6 @@
 				"onPrev"
 			],
 			[
-				"Pri",
-				"PriceStore"
-			],
-			[
 				"toda",
 				"today"
 			],
@@ -232,10 +248,6 @@
 				"recommends"
 			],
 			[
-				"fe",
-				"feeData"
-			],
-			[
 				"re",
 				"recommends"
 			],
@@ -250,10 +262,6 @@
 			[
 				"json",
 				"jsonBody"
-			],
-			[
-				"cha",
-				"cacheData"
 			],
 			[
 				"Product",
@@ -506,19 +514,19 @@
 			[
 				"u",
 				"urlInfo"
-			],
-			[
-				"rom",
-				"roomService"
-			],
-			[
-				"script",
-				"scripts"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "app.js",
+			"settings":
+			{
+				"buffer_size": 1100,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -566,12 +574,14 @@
 	"expanded_folders":
 	[
 		"/Users/xujie/Documents/Github/FTravel",
-		"/Users/xujie/Documents/Github/FTravel/middlewares",
 		"/Users/xujie/Documents/Github/FTravel/other",
 		"/Users/xujie/Documents/Github/FTravel/prototypes",
+		"/Users/xujie/Documents/Github/FTravel/prototypes/styles",
 		"/Users/xujie/Documents/Github/FTravel/public",
 		"/Users/xujie/Documents/Github/FTravel/public/css",
 		"/Users/xujie/Documents/Github/FTravel/public/js",
+		"/Users/xujie/Documents/Github/FTravel/public/js/components",
+		"/Users/xujie/Documents/Github/FTravel/public/js/stores",
 		"/Users/xujie/Documents/Github/FTravel/routes",
 		"/Users/xujie/Documents/Github/FTravel/services",
 		"/Users/xujie/Documents/Github/FTravel/test",
@@ -580,6 +590,19 @@
 	],
 	"file_history":
 	[
+		"/Users/xujie/Documents/Github/FTravel/public/js/stores/Store.js",
+		"/Users/xujie/Documents/Github/FTravel/public/js/stores/ProductStore.js",
+		"/Users/xujie/Documents/Github/FTravel/public/js/components/ListPage.jsx",
+		"/Users/xujie/Documents/Github/FTravel/public/js/components/PriceCalendar.jsx",
+		"/Users/xujie/Documents/Github/FTravel/public/js/stores/PriceStore.js",
+		"/Users/xujie/Documents/Github/FTravel/test/priceServiceTest.js",
+		"/Users/xujie/Documents/Github/FTravel/services/price.js",
+		"/Users/xujie/Documents/Github/FTravel/public/js/components/RoutePage.jsx",
+		"/Users/xujie/Documents/Github/FTravel/views/layout.ejs",
+		"/Users/xujie/Documents/Github/FTravel/public/js/components/DetailPage.jsx",
+		"/Users/xujie/Documents/Github/FTravel/public/css/backward.css",
+		"/Users/xujie/Documents/Github/FTravel/prototypes/styles/common.less",
+		"/Users/xujie/Documents/Github/FTravel/public/css/common.less",
 		"/Users/xujie/Documents/Github/FTravel/prototypes/route.html",
 		"/Users/xujie/Documents/Github/FTravel/public/js/libs/RouteManager.js",
 		"/Users/xujie/Documents/Github/FTravel/public/js/libs/PageHelper.js",
@@ -587,17 +610,10 @@
 		"/Users/xujie/Documents/Github/FTravel/webpack.config.js",
 		"/Users/xujie/Documents/Github/FTravel/app.js",
 		"/Users/xujie/Documents/Github/FTravel/prototypes/styles/site.less",
-		"/Users/xujie/Documents/Github/FTravel/public/css/common.less",
 		"/Users/xujie/Documents/Github/FTravel/views/index.ejs",
 		"/Users/xujie/Documents/Github/FTravel/public/js/libs/backward.css",
 		"/Users/xujie/Documents/Github/FTravel/public/js/components/Root.jsx",
-		"/Users/xujie/Documents/Github/FTravel/public/js/components/DetailPage.jsx",
-		"/Users/xujie/Documents/Github/FTravel/public/js/stores/Store.js",
-		"/Users/xujie/Documents/Github/FTravel/public/js/components/RoutePage.jsx",
-		"/Users/xujie/Documents/Github/FTravel/public/js/components/ListPage.jsx",
-		"/Users/xujie/Documents/Github/FTravel/public/js/components/PriceCalendar.jsx",
 		"/Users/xujie/Documents/Github/FTravel/public/js/components/Calendar.jsx",
-		"/Users/xujie/Documents/Github/FTravel/prototypes/styles/common.less",
 		"/Users/xujie/Documents/Github/FTravel/public/css/variables.less",
 		"/Users/xujie/Documents/Github/FTravel/prototypes/styles/variables.less",
 		"/Users/xujie/Documents/Github/FTravel/prototypes/page.html",
@@ -607,21 +623,16 @@
 		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
 		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
 		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
-		"/Users/xujie/Documents/Github/FTravel/services/price.js",
 		"/Users/xujie/Documents/Github/FTravel/public/js/app.js",
 		"/Users/xujie/Documents/Github/FTravel/routes/price.js",
 		"/Users/xujie/Documents/Github/FTravel/prototypes/styles/mixins.less",
 		"/Users/xujie/Documents/Github/FTravel/public/css/mixins.less",
-		"/Users/xujie/Documents/Github/FTravel/public/js/stores/PriceStore.js",
 		"/Users/xujie/Documents/Github/FTravel/public/js/libs/DateHelper.js",
-		"/Users/xujie/Documents/Github/FTravel/test/priceServiceTest.js",
 		"/Users/xujie/Documents/Github/FTravel/routes/product.js",
-		"/Users/xujie/Documents/Github/FTravel/public/js/stores/ProductStore.js",
 		"/Users/xujie/Documents/Github/FTravel/services/product.js",
 		"/Users/xujie/Documents/Github/FTravel/test/calendarServiceTest.js",
 		"/Users/xujie/Documents/Github/FTravel/test/productServiceTest.js",
 		"/Users/xujie/Documents/Github/FTravel/util/date.js",
-		"/Users/xujie/Documents/Github/FTravel/views/layout.ejs",
 		"/Users/xujie/Documents/Github/FTravel/public/js/components/Header.js",
 		"/Users/xujie/Documents/Github/FTravel/package.json",
 		"/Users/xujie/Documents/Github/FTravel/webpack-css.config.js",
@@ -706,8 +717,7 @@
 		"/Users/xujie/Downloads/android/android.css",
 		"/Users/xujie/Downloads/Todolist/index.html",
 		"/Users/xujie/Downloads/Todolist/css/site.css",
-		"/Users/xujie/Documents/Something",
-		"/Users/xujie/Downloads/Social Problems"
+		"/Users/xujie/Documents/Something"
 	],
 	"find":
 	{
@@ -732,6 +742,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"data",
+			"position: fixed",
 			"font-size",
 			"@timing-function",
 			"@duration",
@@ -898,8 +910,37 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "app.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1100,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								574,
+								574
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
