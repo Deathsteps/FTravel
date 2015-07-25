@@ -397,12 +397,13 @@ header {
 		width: 100%;
 		box-sizing: content-box;
 		line-height: @line-height;
-		background-color: lighten(@color-filter, 20%);
+		background-color: lighten(@color-bar, 20%);
 		color: white;
+		border-bottom: 1px solid lighten(@color-bar, 10%);
 
 		.icon{
 			display: inline-block;
-			background-color: @color-filter;
+			background-color: @color-bar;
 			padding: 0 2px;
 			border-radius: 3px;
 			font-size: @font-size-small;
@@ -482,6 +483,56 @@ header {
 			vertical-align: middle;
 		}
 	}
+}
+
+.hotel_page{
+	.hotel_list{
+		li {
+			padding: @padding-item @padding-side;
+			border-bottom: 1px solid @color-border;
+		}
+
+		.pic, .pic img{
+			width: 80px;
+			height: 80px;
+		}
+		.pic {
+			float: left;
+		}
+
+		.desc{
+			position: relative;
+			min-height: 80px;
+			margin-left: 80 + @padding-item;
+		}
+
+		h3, .points, .star, .zone{
+			display: block;
+			padding-bottom: @padding-icon;
+		}
+
+		.points{
+			color: lighten(@color-main, 10%);
+			font-size: @font-size-small;
+
+			em{
+				font-size: @font-size-emphasis;
+			}
+		}
+
+		.price, .price_lower{
+			position: absolute;
+			right: 0;
+			top: 20px;
+		}
+
+		.star, .zone{
+			font-size: @font-size-base - 1;
+			color: lighten(@color-font, 10%);
+		}
+	}
+
+	
 }
 
 footer {
