@@ -27,7 +27,15 @@ em, i {
 }
 
 body {
-	font: @font-size-base "Tahoma", Helvetica, Arial, sans-serif;
+	font: @font-size-base "Tahoma", Helvetica, Arial, 'Microsoft YaHei', sans-serif;
+}
+
+html, body{
+	height: 100%;
+}
+
+dfn{
+	font-family: Arial;
 }
 
 /* ----------Site--------- */
@@ -37,7 +45,7 @@ header {
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 200;
+  z-index: @z-base;
 	background: @color-main;
 	color: white;
 
@@ -68,6 +76,7 @@ header {
 
 .main {
 	margin-top: @base-size;
+	height: 100%;
 }
 
 /*-----------Page------------*/
@@ -213,9 +222,6 @@ header {
 
 		.start_book {
 			width: 70%;
-			background: @color-widget;
-			color: white;
-			border: 1px solid darken(@color-widget, 10%)
 		}
 	}
 }
@@ -248,13 +254,234 @@ header {
 		.start_book{
 			width: 80%;
 			height: @base-size;
-			background-color: @color-widget;
-			color: white;
-			border-color: darken(@color-widget, 10%);
 			font-size: @font-size-base;
 		}	
 	}
-	
+}
+
+.package_page {
+	height: 100%;
+	padding: @padding-icon @padding-item;
+	background-color: @color-background;
+
+	section {
+		margin-top: @padding-block;
+		padding: @padding-icon 0;
+		width: 100%;
+		border-radius: 8px;
+		background-color: white;
+
+		>ul, >div{
+			margin: @padding-item;
+		}
+		>div{
+			text-align: center;
+		}
+
+		>ul {
+			margin-top: @padding-icon;
+			li{
+				padding: @padding-item 0;
+				border-bottom: 1px solid @color-border;
+			}
+		}
+
+		a{
+			color: @color-main;
+		}
+
+		.summary{
+			font-size: @font-size-small;
+		}
+		.detail{
+			margin: @padding-item 0;
+		}
+	}
+
+	.flights{
+		.time {
+			font-size: @font-size-emphasis;
+			font-weight: bold;
+		}
+		.from, .line_space, .to{
+			display: inline-block;
+		}
+		.from {
+			width: 35%;
+		}
+		.line_space {
+			width: 20%;
+		}
+		.line{
+			width: 100%;
+		}
+		.to {
+			margin-left: @padding-item;
+		}
+	}
+	.hotels{
+		.pic, .pic img{
+			width: 80px;
+			height: 80px;
+		}
+		.pic {
+			float: left;
+		}
+		.desc{
+			min-height: 80px;
+			margin-left: 80 + @padding-item;
+
+			h3{
+				padding-bottom: @padding-item;
+			}
+			.room{
+				padding-top: @padding-icon;
+
+				.room_count {
+					color: @color-main;
+					float: right;
+					margin-right: @padding-block;
+				}
+			}
+		}
+	}
+	.footer_bar{
+		padding: 0;
+		height: @base-size;
+		font-size: @font-size-emphasis;
+		background-color: softlight(@color-widget, @color-border);
+		color: white;
+
+		.price_detail, a {
+			display: inline-block;
+			padding: @padding-item @padding-side;
+		}
+
+		span{
+			&:first-child{
+				font-size: @font-size-base;
+			}
+			&:nth-child(3){
+				margin-left: @padding-item;
+				background-color: white;
+				color: softlight(@color-widget, @color-border);
+				font-weight: bold;
+			}
+		}
+
+		.save_price {
+			padding: 0 2px;
+			font-size: @font-size-small;
+			border: 1px solid white;
+		}
+
+		a{
+			float: right;
+			display: inline-block;
+			height: 100%;
+			text-align: center;
+			background-color: @color-widget;
+			color: white;
+		}
+	}
+}
+
+.flight_page{
+	height: 100%;
+	background-color: @color-background;
+
+	.progress{
+		position: fixed;
+		z-index: @z-base;
+		padding: @padding-small @padding-side;
+		width: 100%;
+		box-sizing: content-box;
+		line-height: @line-height;
+		background-color: lighten(@color-filter, 20%);
+		color: white;
+
+		.icon{
+			display: inline-block;
+			background-color: @color-filter;
+			padding: 0 2px;
+			border-radius: 3px;
+			font-size: @font-size-small;
+		}
+		.count{
+			float: right;
+			margin-right: 28px;
+		}
+	}
+
+	ul {
+		padding: 30px 0;
+	}
+
+	li{
+		margin-bottom: @padding-item;
+		padding: 0 @padding-side;
+		border-bottom: 1px solid @color-border;
+		background-color: white;
+	}
+
+	.time {
+		position: relative;
+		padding-top: @padding-item;
+
+		strong {
+			font-size: @font-size-emphasis;
+		}
+		.duration{
+			font-size: @font-size-small;
+			color: lighten(@color-font, 30%);
+		}
+		.price, .price_lower {
+			position: absolute;
+			top: 10px;
+			right: 0;
+		}
+	}
+	.airport{
+		padding-bottom: @padding-item;
+		.clearfix();
+
+		.line{
+			display: block;
+			width: 80%;
+		}
+		.from{
+			float: left;
+			left: 0;
+			top: 0;
+		}
+		.to{
+			float: right;
+			right: 0;
+			top: 0;
+			margin-right: 20%;
+		}
+	}
+	.airline{
+		padding: @padding-icon 0;
+		border-top: 1px solid @color-border;
+	}
+	.cabin{
+		position: relative;
+		padding: @padding-icon 0 @padding-item;
+		border-top: 1px solid @color-border;
+		>span, a {
+			display: block;
+			font-size: @font-size-small;
+		}
+		div{
+			position: absolute;
+			right: 0;
+			top: @padding-small;
+		}
+		.price, .price_lower{
+			vertical-align: middle;
+		}
+	}
 }
 
 footer {

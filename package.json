@@ -11,17 +11,21 @@
     "debug": "^2.2.0",
     "ejs": "^2.3.1",
     "express": "^4.12.4",
+    "lodash": "^3.10.0",
     "moment": "^2.10.3",
     "mongodb": "^2.0.36",
     "morgan": "^1.5.3",
     "node-jsx": "^0.13.3",
+    "node-libs-browser": "^0.5.2",
     "react": "^0.13.3",
-    "serve-favicon": "^2.2.1"
+    "serve-favicon": "^2.2.1",
+    "webpack": "^1.10.1"
   },
   "devDependencies": {
     "mocha": "~2.2.5",
     "style-loader": "^0.12.3",
     "jsx-loader": "^0.13.2",
+    "extract-text-webpack-plugin": "^0.8.2",
     "less": "^2.5.1",
     "less-loader": "^2.2.0"
   },
