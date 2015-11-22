@@ -9,7 +9,7 @@
   }
 }
 .clearfix{
-	.clearfix();
+  .clearfix();
 }
 
 
@@ -24,10 +24,10 @@
 }
 
 .transition(@property: all, @duration: 0.2s, @timing-function: ease-in-out){
-	transition: @property @duration @timing-function;
-	-moz-transition: @property @duration @timing-function; /* Firefox 4 */
-	-webkit-transition: @property @duration @timing-function; /* Safari 和 Chrome */
-	-o-transition: @property @duration @timing-function; /* Opera */
+  transition: @property @duration @timing-function;
+  -moz-transition: @property @duration @timing-function; /* Firefox 4 */
+  -webkit-transition: @property @duration @timing-function; /* Safari 和 Chrome */
+  -o-transition: @property @duration @timing-function; /* Opera */
 }
 
 .transform(@transform){
@@ -40,7 +40,7 @@
 
 /*--------------Components---------------*/
 
-.btn {
+.btn() {
   display: inline-block;
   text-align: center;
   vertical-align: middle;
@@ -51,6 +51,10 @@
   white-space: nowrap;
   border-radius: 5px;
 
+  background-color: @color-widget;
+  color: white;
+  border-color: darken(@color-widget, 10%);
+
   &:active {
     outline: 0;
     background-image: none;
@@ -60,10 +64,16 @@
     background: @color-disable;
     color: white;
   }
-
+}
+.btn {
+  .btn();
+}
+.btn_select {
+  .btn();
+  padding: @padding-icon*2 @padding-item;
 }
 
-.price {
+.price() {
   color: @color-widget;
   font-size: @font-size-emphasis;
 
@@ -71,6 +81,13 @@
     margin-right: @padding-icon;
     font-size: @font-size-small;
   }
+}
+.price{
+  .price();
+}
+.price_lower {
+  .price();
+  color: @color-lower-price;
 }
 
 .calendar {
@@ -167,6 +184,33 @@
   }
 }
 
+.line {
+  border-top: 1px solid lighten(@color-main, 20%);
+  height: 0;
+  font-size: 0;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  margin: 10px 0 8px;
+
+  &:before, &:after{
+    content: "";
+    width: 3px;
+    height: 3px;
+    position: absolute;
+    top: -2px;
+    border-radius: 50%;
+    background: @color-main;
+  }
+  &:before{
+    left: 0;
+  }
+  &:after{
+    right: 0;
+  }
+
+}
+
 .footer_bar {
   position: fixed;
   bottom: 0;
@@ -179,7 +223,7 @@
 
 
 .animated_pages {
-
+  height: 100%;
 }
 
 .page-enter, .page-leave {

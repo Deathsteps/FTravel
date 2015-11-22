@@ -14,7 +14,14 @@ function filterPrices (calendar, dateRange) {
 
 	return calendar;
 }
-
+/**
+ * @param  {Object} query 
+ * 	{ DateRange: 
+ * 		{ Start: '2014-01-02', 
+ * 		  End: '2015-01-21' }, 
+ * 		ProductID: 222 }
+ * @param  {Function}
+ */
 exports.find = function (query, callback) {
 	if(!query) return null;
 

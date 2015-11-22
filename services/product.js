@@ -1,7 +1,10 @@
 var MongoClient = require('mongodb').MongoClient;
 
 var CONNECT_STRING = 'mongodb://localhost:27017/travel';
-
+/**
+ * @param  {Object} query {ProductID: 1212}
+ * @param  {Function}
+ */
 exports.findOne = function (query, callback) {
 	if(!query) callback(null);
 
@@ -23,6 +26,10 @@ exports.findOne = function (query, callback) {
 
 var PAGE_SIZE = 7;
 
+/**
+ * @param  {Object}	pageQuery {PageIndex: 1}
+ * @param  {Function}
+ */
 exports.findByPage = function (pageQuery, callback) {
 	if(!pageQuery){
 		callback(null, []);
