@@ -40,7 +40,7 @@ var ListPage = React.createClass({
     		// to do data paging
 
 	    	return (
-				<div className="list_page">
+						<div className="list_page">
 			        <section className="ads">Advertisements</section>
 			        <section>
 			          <a className="lnk_custom" href="#">Go To Custom Products &gt;&gt;</a>
@@ -54,7 +54,7 @@ var ListPage = React.createClass({
 	        );	
     	}else{
     		return (
-				<div className="list_page">
+						<div className="list_page">
 			        <section className="ads">Advertisements</section>
 			        <section>
 			          <a className="lnk_custom" href="#">Go To Custom Products &gt;&gt;</a>
