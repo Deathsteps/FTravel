@@ -69,7 +69,7 @@ hr {
 html { overflow-y: scroll; }/* ------- color -------*/
 /* ------- font-size -------*/
 /* ------- padding -------*/
-/* ------- border-radius -------*/
+/* ------- other -------*/
 .clearfix:before,
 .clearfix:after {
   content: " ";
@@ -98,6 +98,9 @@ html { overflow-y: scroll; }/* ------- color -------*/
   border: 1px solid transparent;
   white-space: nowrap;
   border-radius: 5px;
+  background-color: #ff7d13;
+  color: white;
+  border-color: #df6400;
 }
 .btn:active {
   outline: 0;
@@ -107,11 +110,55 @@ html { overflow-y: scroll; }/* ------- color -------*/
   background: #cccccc;
   color: white;
 }
+.btn_select {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  border-radius: 5px;
+  background-color: #ff7d13;
+  color: white;
+  border-color: #df6400;
+  padding: 6px 10px;
+}
+.btn_select:active {
+  outline: 0;
+  background-image: none;
+}
+.btn_select.disabled {
+  background: #cccccc;
+  color: white;
+}
+.btn_select:active {
+  outline: 0;
+  background-image: none;
+}
+.btn_select.disabled {
+  background: #cccccc;
+  color: white;
+}
 .price {
   color: #ff7d13;
   font-size: 18px;
 }
 .price dfn {
+  margin-right: 3px;
+  font-size: 12px;
+}
+.price_lower {
+  color: #ff7d13;
+  font-size: 18px;
+  color: #73b100;
+}
+.price_lower dfn {
+  margin-right: 3px;
+  font-size: 12px;
+}
+.price_lower dfn {
   margin-right: 3px;
   font-size: 12px;
 }
@@ -207,6 +254,31 @@ html { overflow-y: scroll; }/* ------- color -------*/
   border-left: none;
   border-right: none;
 }
+.line {
+  border-top: 1px solid #55c8f8;
+  height: 0;
+  font-size: 0;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  margin: 10px 0 8px;
+}
+.line:before,
+.line:after {
+  content: "";
+  width: 3px;
+  height: 3px;
+  position: absolute;
+  top: -2px;
+  border-radius: 50%;
+  background: #099fde;
+}
+.line:before {
+  left: 0;
+}
+.line:after {
+  right: 0;
+}
 .footer_bar {
   position: fixed;
   bottom: 0;
@@ -215,6 +287,9 @@ html { overflow-y: scroll; }/* ------- color -------*/
   padding: 10px 0;
   border-top: 1px solid #dddddd;
   background-color: white;
+}
+.animated_pages {
+  height: 100%;
 }
 .page-enter,
 .page-leave {
@@ -285,7 +360,14 @@ i {
   font-weight: 400;
 }
 body {
-  font: 14px "Tahoma", Helvetica, Arial, sans-serif;
+  font: 14px "Tahoma", Helvetica, Arial, 'Microsoft YaHei', sans-serif;
+}
+html,
+body {
+  height: 100%;
+}
+dfn {
+  font-family: Arial;
 }
 /* ----------Site--------- */
 header {
@@ -323,6 +405,7 @@ header .home {
 }
 .main {
   margin-top: 44px;
+  height: 100%;
 }
 /*-----------Page------------*/
 .list_page {
@@ -461,9 +544,6 @@ header .home {
 }
 .detail_page .book .start_book {
   width: 70%;
-  background: #ff7d13;
-  color: white;
-  border: 1px solid #df6400;
 }
 .route_page h1 {
   width: 100%;
@@ -488,8 +568,269 @@ header .home {
 .route_page .book .start_book {
   width: 80%;
   height: 44px;
+  font-size: 14px;
+}
+.package_page {
+  height: 100%;
+  padding: 3px 10px;
+  background-color: #eeeeee;
+}
+.package_page section {
+  margin-top: 15px;
+  padding: 3px 0;
+  width: 100%;
+  border-radius: 8px;
+  background-color: white;
+}
+.package_page section > ul,
+.package_page section > div {
+  margin: 10px;
+}
+.package_page section > div {
+  text-align: center;
+}
+.package_page section > ul {
+  margin-top: 3px;
+}
+.package_page section > ul li {
+  padding: 10px 0;
+  border-bottom: 1px solid #dddddd;
+}
+.package_page section a {
+  color: #099fde;
+}
+.package_page section .summary {
+  font-size: 12px;
+}
+.package_page section .detail {
+  margin: 10px 0;
+}
+.package_page .flights .time {
+  font-size: 18px;
+  font-weight: bold;
+}
+.package_page .flights .from,
+.package_page .flights .line_space,
+.package_page .flights .to {
+  display: inline-block;
+}
+.package_page .flights .from {
+  width: 35%;
+}
+.package_page .flights .line_space {
+  width: 20%;
+}
+.package_page .flights .line {
+  width: 100%;
+}
+.package_page .flights .to {
+  margin-left: 10px;
+}
+.package_page .hotels .pic,
+.package_page .hotels .pic img {
+  width: 80px;
+  height: 80px;
+}
+.package_page .hotels .pic {
+  float: left;
+}
+.package_page .hotels .desc {
+  min-height: 80px;
+  margin-left: 90px;
+}
+.package_page .hotels .desc h3 {
+  padding-bottom: 10px;
+}
+.package_page .hotels .desc .room {
+  padding-top: 3px;
+}
+.package_page .hotels .desc .room .room_count {
+  color: #099fde;
+  float: right;
+  margin-right: 15px;
+}
+.package_page .footer_bar {
+  padding: 0;
+  height: 44px;
+  font-size: 18px;
+  background-color: #ffa432;
+  color: white;
+}
+.package_page .footer_bar .price_detail,
+.package_page .footer_bar a {
+  display: inline-block;
+  padding: 10px 15px;
+}
+.package_page .footer_bar span:first-child {
+  font-size: 14px;
+}
+.package_page .footer_bar span:nth-child(3) {
+  margin-left: 10px;
+  background-color: white;
+  color: #ffa432;
+  font-weight: bold;
+}
+.package_page .footer_bar .save_price {
+  padding: 0 2px;
+  font-size: 12px;
+  border: 1px solid white;
+}
+.package_page .footer_bar a {
+  float: right;
+  display: inline-block;
+  height: 100%;
+  text-align: center;
   background-color: #ff7d13;
   color: white;
-  border-color: #df6400;
-  font-size: 14px;
+}
+.flight_page {
+  height: 100%;
+  background-color: #eeeeee;
+}
+.flight_page .progress {
+  position: fixed;
+  z-index: 200;
+  padding: 6px 15px;
+  width: 100%;
+  box-sizing: content-box;
+  line-height: 18px;
+  background-color: rgba(77, 107, 136, 0.95);
+  color: white;
+  border-bottom: 1px solid rgba(58, 82, 104, 0.95);
+}
+.flight_page .progress .icon {
+  display: inline-block;
+  background-color: rgba(40, 56, 71, 0.95);
+  padding: 0 2px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+.flight_page .progress .count {
+  float: right;
+  margin-right: 28px;
+}
+.flight_page ul {
+  padding: 30px 0;
+}
+.flight_page li {
+  margin-bottom: 10px;
+  padding: 0 15px;
+  border-bottom: 1px solid #dddddd;
+  background-color: white;
+}
+.flight_page .time {
+  position: relative;
+  padding-top: 10px;
+}
+.flight_page .time strong {
+  font-size: 18px;
+}
+.flight_page .time .duration {
+  font-size: 12px;
+  color: #808080;
+}
+.flight_page .time .price,
+.flight_page .time .price_lower {
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+.flight_page .airport {
+  padding-bottom: 10px;
+}
+.flight_page .airport:before,
+.flight_page .airport:after {
+  content: " ";
+  display: table;
+}
+.flight_page .airport:after {
+  clear: both;
+}
+.flight_page .airport:before,
+.flight_page .airport:after {
+  content: " ";
+  display: table;
+}
+.flight_page .airport:after {
+  clear: both;
+}
+.flight_page .airport .line {
+  display: block;
+  width: 80%;
+}
+.flight_page .airport .from {
+  float: left;
+  left: 0;
+  top: 0;
+}
+.flight_page .airport .to {
+  float: right;
+  right: 0;
+  top: 0;
+  margin-right: 20%;
+}
+.flight_page .airline {
+  padding: 3px 0;
+  border-top: 1px solid #dddddd;
+}
+.flight_page .cabin {
+  position: relative;
+  padding: 3px 0 10px;
+  border-top: 1px solid #dddddd;
+}
+.flight_page .cabin > span,
+.flight_page .cabin a {
+  display: block;
+  font-size: 12px;
+}
+.flight_page .cabin div {
+  position: absolute;
+  right: 0;
+  top: 6px;
+}
+.flight_page .cabin .price,
+.flight_page .cabin .price_lower {
+  vertical-align: middle;
+}
+.hotel_page .hotel_list li {
+  padding: 10px 15px;
+  border-bottom: 1px solid #dddddd;
+}
+.hotel_page .hotel_list .pic,
+.hotel_page .hotel_list .pic img {
+  width: 80px;
+  height: 80px;
+}
+.hotel_page .hotel_list .pic {
+  float: left;
+}
+.hotel_page .hotel_list .desc {
+  position: relative;
+  min-height: 80px;
+  margin-left: 90px;
+}
+.hotel_page .hotel_list h3,
+.hotel_page .hotel_list .points,
+.hotel_page .hotel_list .star,
+.hotel_page .hotel_list .zone {
+  display: block;
+  padding-bottom: 3px;
+}
+.hotel_page .hotel_list .points {
+  color: #24b8f6;
+  font-size: 12px;
+}
+.hotel_page .hotel_list .points em {
+  font-size: 18px;
+}
+.hotel_page .hotel_list .price,
+.hotel_page .hotel_list .price_lower {
+  position: absolute;
+  right: 0;
+  top: 20px;
+}
+.hotel_page .hotel_list .star,
+.hotel_page .hotel_list .zone {
+  font-size: 13px;
+  color: #4d4d4d;
 }

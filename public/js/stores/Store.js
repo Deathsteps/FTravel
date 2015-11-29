@@ -1,56 +1,40 @@
 var _ = require('lodash');
 var EventEmitter = require('events').EventEmitter;
 
+var localStorage = require('./Storage').localStorage;
+var serverMemoryStorage = require('./Storage').serverMemoryStorage;
 var fetch = require('../../../util/fetch');
 
 var IS_CLIENT = typeof window !== 'undefined';
+
+
 
 var Store = _.assign({}, EventEmitter.prototype, {
 
 	CACHE_KEY: '',
 
-	clientSide: IS_CLIENT,
-
 	_fetch: fetch,
 
-	_serverCache: {expire: Date.now()},
-
 	_getFromCache: function (key) {
-		var cacheData;
-
 		if(IS_CLIENT){
-			cacheData = window.initialData[key];
+			var cacheData = window.initialData[key];
 			if(cacheData){
 				this._setCache(key, cacheData);
-				return cacheData;				
+				return cacheData;
 			}
-
-			cacheData = window.localStorage.getItem(key);
-			if(!cacheData) return null;
-
-			cacheData = JSON.parse(cacheData);
+			return localStorage.getItem(key);
 		}else{
-			cacheData = this._serverCache;
+			return serverMemoryStorage.getItem(key);
 		}
-
-		return cacheData.expire < Date.now() ? null : cacheData.data;
 	},
 
 	_setCache: function (key, data, expire, serverExpire) {
 		// Client side default expire time: 1 day
 		// Server side default expire time: 1 second
-		if(!expire)
-			expire = 1 * 24 * 60 * 60 * 1000;
-		if(!serverExpire)
-			serverExpire = 1000;
-
-		data = {data: data};
 		if(IS_CLIENT){
-			data.expire = new Date(Date.now() + expire);
-			window.localStorage.setItem(key, JSON.stringify(data));
+			localStorage.setItem(key, data, expire || '1d');
 		}else{
-			data.expire = new Date(Date.now() + serverExpire);
-			this._serverCache = data;
+			serverMemoryStorage.setItem(key, data, expire || '1s');
 		}
 	},
 

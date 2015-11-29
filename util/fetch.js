@@ -91,6 +91,11 @@ if(typeof XMLHttpRequest === "function"){
 	
 }else{
 	(function (module) {
+		// Most of the time, in a distributed system, services are provided by an independent system.
+		// The system may be a in-process program or a soa service.
+		// Anyway, whatever it is, here just show you a way to fetch the data.
+		// With the same interface, it can be replaced by any other implementation according to the real situation.
+
 		var http = require('http');
 
 		var options = {
