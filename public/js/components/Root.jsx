@@ -1,6 +1,6 @@
-var React = require('react/addons');
+var React = require('react');
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
-var CSSTransitionGroup = React.addons.CSSTransitionGroup;
 var RouteManager = require('../libs/RouteManager');
 
 var Root = React.createClass({
@@ -36,15 +36,11 @@ var Root = React.createClass({
 	render: function () {
 		var path = this.state.path;
 		var route = RouteManager.match(path);
-		// http://unitstep.net/blog/2015/03/03/using-react-animations-to-transition-between-ui-states/
-		// Currently, ReactCSSTransitionGroup can only animate components 
-		// that are being added or removed, not those being updated.
-		// So we use the route key as the page key.
 		var page = React.createElement(route.component, {params: route.params, key: route.key});
 		return (
-			<CSSTransitionGroup transitionName="page" component="div" className="animated_pages">
+			<ReactCSSTransitionGroup transitionName="page" component="div" className="animated_pages" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
 				{page}
-			</CSSTransitionGroup>
+			</ReactCSSTransitionGroup>
 		);
 	},
 
