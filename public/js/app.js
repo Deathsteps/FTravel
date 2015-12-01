@@ -1,4 +1,5 @@
 var React = require("react");
+var ReactDOM = require('react-dom');
 
 var Root         = require("./components/Root");
 var RouteManager = require('./libs/RouteManager');
@@ -19,7 +20,7 @@ if(typeof window !== 'undefined'){
 
 		RouteManager.bindUrlChangeEvents();
 
-		React.render(React.createFactory(Root)(), document.getElementById("main"));
+		ReactDOM.render(React.createFactory(Root)(), document.getElementById("main"));
 	};
 }else{
 	// Server Side
