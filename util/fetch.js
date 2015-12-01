@@ -1,5 +1,3 @@
-var Promise = require('bluebird');
-
 function Response(opts) {
 	this.status = opts.status || '200';
 	this.statusText = opts.statusText || 'Success';

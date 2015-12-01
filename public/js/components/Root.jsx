@@ -1,5 +1,4 @@
 var React = require('react/addons');
-var Promise = require('bluebird');
 
 var CSSTransitionGroup = React.addons.CSSTransitionGroup;
 var RouteManager = require('../libs/RouteManager');

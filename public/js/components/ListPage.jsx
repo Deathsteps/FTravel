@@ -1,5 +1,4 @@
 var React = require('react');
-var Promise = require('bluebird');
 
 var Header = require('./Header');
 var Product = require('./Product');

@@ -1,5 +1,4 @@
 var React = require('react');
-var Promise = require('bluebird');
 var _ = require('lodash');
 
 var Header = require('./Header');

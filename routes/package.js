@@ -1,7 +1,6 @@
 var express = require('express');
 var React   = require('react');
 var async   = require('async');
-var Promise = require('Promise');
 
 var packageService = require('../services/package');
 var hotelService = require('../services/hotel');

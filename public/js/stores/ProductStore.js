@@ -1,5 +1,3 @@
-var Promise = require('bluebird');
-
 var Store = require('./Store');
 
 var ProductStore = Store.create({
