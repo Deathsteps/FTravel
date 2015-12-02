@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"requ",
+				"require"
+			],
+			[
 				"l",
 				"localStorage"
 			],
@@ -436,10 +440,6 @@
 				"HotelID"
 			],
 			[
-				"requ",
-				"requestHotels"
-			],
-			[
 				"hot",
 				"hotels"
 			],
@@ -520,51 +520,18 @@
 	"buffers":
 	[
 		{
-			"file": "app.js",
+			"file": "public/js/libs/RouteManager.js",
 			"settings":
 			{
-				"buffer_size": 1100,
+				"buffer_size": 2140,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "routes/package.js",
+			"file": "public/js/components/PackagePage.jsx",
 			"settings":
 			{
-				"buffer_size": 1852,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "README.md",
-			"settings":
-			{
-				"buffer_size": 1056,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "blogs/Under the hood.md",
-			"settings":
-			{
-				"buffer_size": 2469,
-				"line_ending": "Unix",
-				"name": "# Under the hood"
-			}
-		},
-		{
-			"file": "public/js/stores/Store.js",
-			"settings":
-			{
-				"buffer_size": 1880,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/js/stores/Storage.js",
-			"settings":
-			{
-				"buffer_size": 1686,
+				"buffer_size": 474,
 				"line_ending": "Unix"
 			}
 		},
@@ -572,39 +539,7 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 1257,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "util/fetch.js",
-			"settings":
-			{
-				"buffer_size": 3665,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/js/components/Product.jsx",
-			"settings":
-			{
-				"buffer_size": 753,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/js/components/ListPage.jsx",
-			"settings":
-			{
-				"buffer_size": 1981,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "services/flight.js",
-			"settings":
-			{
-				"buffer_size": 1695,
+				"buffer_size": 1402,
 				"line_ending": "Unix"
 			}
 		}
@@ -616,16 +551,36 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 107.0,
-		"last_filter": "Package Control: in",
+		"height": 367.0,
+		"last_filter": "Package Control: ",
 		"selected_items":
 		[
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: D",
+				"Package Control: Disable Package"
+			],
+			[
+				"Package Control: list",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: Dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"Package Control: l",
+				"Package Control: Disable Package"
+			],
 			[
 				"Package Control: in",
 				"Package Control: Install Package"
 			],
 			[
-				"Package Control: ",
+				"Package Control: li",
 				"Package Control: Install Package"
 			],
 			[
@@ -658,11 +613,43 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/xujie/Documents/Github/FTravel"
+		"/Users/xujie/Documents/Github/FTravel",
+		"/Users/xujie/Documents/Github/FTravel/public"
 	],
 	"file_history":
 	[
+		"/Users/xujie/Documents/Github/FTravel/.eslintrc",
+		"/Users/xujie/Documents/Github/FTravel/package.json",
+		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/SublimeLinter/Default (OSX).sublime-keymap",
+		"/Users/xujie/Documents/Github/FTravel/public/js/components/PriceCalendar.jsx",
+		"/Users/xujie/Documents/Github/FTravel/.jshintrc",
+		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/Alignment/Default (OSX).sublime-keymap",
+		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/JsFormat/Default (OSX).sublime-keymap",
+		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/Babel/Babel.sublime-settings",
+		"/Users/xujie/Documents/Github/FTravel/webpack.config.js",
+		"/Users/xujie/Documents/Github/FTravel/webpack-server.js",
+		"/Users/xujie/Documents/Github/FTravel/webpack.dev.config.js",
+		"/Users/xujie/Documents/Github/FTravel/public/js/components/DetailPage.jsx",
+		"/Users/xujie/Documents/Github/FTravel/views/layout.ejs",
+		"/Users/xujie/Documents/Github/FTravel/bin/www",
+		"/Users/xujie/Documents/Github/FTravel/public/js/components/ListPage.jsx",
+		"/Users/xujie/Documents/Github/FTravel/node_modules/envify/README.md",
+		"/Users/xujie/Documents/Github/FTravel/public/js/components/Root.jsx",
+		"/Users/xujie/Documents/Github/FTravel/public/js/app.js",
+		"/Users/xujie/Documents/Github/FTravel/public/js/components/NotFoundPage.jsx",
+		"/Users/xujie/Documents/Github/FTravel/public/assets/bundle.js",
+		"/Users/xujie/Documents/Github/FTravel/app.js",
+		"/Users/xujie/Documents/Github/FTravel/routes/package.js",
+		"/Users/xujie/Documents/Github/FTravel/README.md",
+		"/Users/xujie/Documents/Github/FTravel/blogs/Under the hood.md",
+		"/Users/xujie/Documents/Github/FTravel/public/js/stores/Store.js",
+		"/Users/xujie/Documents/Github/FTravel/public/js/stores/Storage.js",
+		"/Users/xujie/Documents/Github/FTravel/public/js/stores/ProductStore.js",
+		"/Users/xujie/Documents/Github/FTravel/public/js/components/RoutePage.jsx",
 		"/Users/xujie/Documents/Github/FTravel/public/js/components/PackagePage.jsx",
+		"/Users/xujie/Documents/Github/FTravel/util/fetch.js",
+		"/Users/xujie/Documents/Github/FTravel/public/js/components/Product.jsx",
+		"/Users/xujie/Documents/Github/FTravel/services/flight.js",
 		"/Users/xujie/Documents/Github/FTravel/services/price.js",
 		"/Users/xujie/Documents/Github/FTravel/services/hotel.js",
 		"/Users/xujie/Documents/Github/FTravel/services/product.js",
@@ -673,18 +660,9 @@
 		"/Users/xujie/Documents/Github/FTravel/prototypes/styles/variables.less",
 		"/Users/xujie/Documents/Github/FTravel/prototypes/package.html",
 		"/Users/xujie/Documents/Github/FTravel/prototypes/flight.html",
-		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/SublimeLinter/Default (OSX).sublime-keymap",
-		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/Alignment/Default (OSX).sublime-keymap",
 		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
-		"/Users/xujie/Documents/Github/FTravel/public/js/stores/Store.js",
-		"/Users/xujie/Documents/Github/FTravel/public/js/stores/ProductStore.js",
-		"/Users/xujie/Documents/Github/FTravel/public/js/components/ListPage.jsx",
-		"/Users/xujie/Documents/Github/FTravel/public/js/components/PriceCalendar.jsx",
 		"/Users/xujie/Documents/Github/FTravel/public/js/stores/PriceStore.js",
 		"/Users/xujie/Documents/Github/FTravel/test/priceServiceTest.js",
-		"/Users/xujie/Documents/Github/FTravel/public/js/components/RoutePage.jsx",
-		"/Users/xujie/Documents/Github/FTravel/views/layout.ejs",
-		"/Users/xujie/Documents/Github/FTravel/public/js/components/DetailPage.jsx",
 		"/Users/xujie/Documents/Github/FTravel/public/css/backward.css",
 		"/Users/xujie/Documents/Github/FTravel/prototypes/styles/common.less",
 		"/Users/xujie/Documents/Github/FTravel/public/css/common.less",
@@ -692,11 +670,8 @@
 		"/Users/xujie/Documents/Github/FTravel/public/js/libs/RouteManager.js",
 		"/Users/xujie/Documents/Github/FTravel/public/js/libs/PageHelper.js",
 		"/Users/xujie/Documents/Github/FTravel/public/css/site.less",
-		"/Users/xujie/Documents/Github/FTravel/webpack.config.js",
-		"/Users/xujie/Documents/Github/FTravel/app.js",
 		"/Users/xujie/Documents/Github/FTravel/views/index.ejs",
 		"/Users/xujie/Documents/Github/FTravel/public/js/libs/backward.css",
-		"/Users/xujie/Documents/Github/FTravel/public/js/components/Root.jsx",
 		"/Users/xujie/Documents/Github/FTravel/public/js/components/Calendar.jsx",
 		"/Users/xujie/Documents/Github/FTravel/public/css/variables.less",
 		"/Users/xujie/Documents/Github/FTravel/prototypes/page.html",
@@ -705,7 +680,6 @@
 		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
 		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
-		"/Users/xujie/Documents/Github/FTravel/public/js/app.js",
 		"/Users/xujie/Documents/Github/FTravel/routes/price.js",
 		"/Users/xujie/Documents/Github/FTravel/prototypes/styles/mixins.less",
 		"/Users/xujie/Documents/Github/FTravel/public/css/mixins.less",
@@ -715,25 +689,18 @@
 		"/Users/xujie/Documents/Github/FTravel/test/productServiceTest.js",
 		"/Users/xujie/Documents/Github/FTravel/util/date.js",
 		"/Users/xujie/Documents/Github/FTravel/public/js/components/Header.js",
-		"/Users/xujie/Documents/Github/FTravel/package.json",
 		"/Users/xujie/Documents/Github/FTravel/webpack-css.config.js",
-		"/Users/xujie/Documents/Github/FTravel/README.md",
 		"/Users/xujie/Documents/Github/FTravel/public/css/site.css",
 		"/Users/xujie/Documents/Github/FTravel/middlewares/appHandler.js",
-		"/Users/xujie/Documents/Github/FTravel/util/fetch.js",
-		"/Users/xujie/Documents/Github/FTravel/public/js/components/Product.jsx",
 		"/Users/xujie/Documents/Github/FTravel/test/RouteManagerTest.js",
 		"/Users/xujie/Documents/Github/FTravel/middlewares/pageHandler.js",
-		"/Users/xujie/Documents/Github/FTravel/.jshintrc",
 		"/Users/xujie/Documents/Github/FTravel/routes/index.js",
-		"/Users/xujie/Documents/Github/FTravel/public/js/components/NotFoundPage.jsx",
 		"/Users/xujie/Documents/Github/FTravel/routes/root.js",
 		"/Users/xujie/Documents/Github/FTravel/.gitignore",
 		"/Users/xujie/Downloads/CleanMyMac3_Setup/东坡下载说明.txt",
 		"/Users/xujie/Documents/Github/FTravel/public/js/bundle.js",
 		"/Users/xujie/Documents/Github/FTravel/test/fetchTest.js",
 		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
-		"/Users/xujie/Library/Application Support/Sublime Text 3/Packages/JsFormat/Default (OSX).sublime-keymap",
 		"/Users/xujie/Documents/mvc/React/scripts/app/components/HotelApp.js",
 		"/Users/xujie/Documents/mvc/React/scripts/app/components/Hotel.js",
 		"/Users/xujie/Documents/mvc/React/scripts/app/components/app.js",
@@ -778,18 +745,7 @@
 		"/Users/xujie/Documents/mvc/server.js",
 		"/Users/xujie/Documents/mvc/Angular/index.html",
 		"/Users/xujie/Documents/mvc/Angular/scripts/controllers/hotelCtrl.js",
-		"/Users/xujie/Documents/mvc/Angular/scripts/app.js",
-		"/Users/xujie/Downloads/package_order.js",
-		"/Users/xujie/Documents/Github/package.json",
-		"/Volumes/Git 2.2.1 Mavericks Intel Universal/setup git PATH for non-terminal programs.sh",
-		"/Users/xujie/Downloads/view",
-		"/Users/xujie/Downloads/Develop A Website",
-		"/Users/xujie/Downloads/A",
-		"/Users/xujie/Downloads/WC/public/prd.txt",
-		"/Users/xujie/Downloads/WC/public/css/list.css",
-		"/untitled",
-		"/Users/xujie/Downloads/IPZ-050",
-		"/Users/xujie/Downloads/茶底世界"
+		"/Users/xujie/Documents/mvc/Angular/scripts/app.js"
 	],
 	"find":
 	{
@@ -800,6 +756,15 @@
 		"height": 93.0,
 		"where_history":
 		[
+			"/Users/xujie/Documents/Github/FTravel",
+			"/Users/xujie/Documents/Github/FTravel/public/js",
+			"/Users/xujie/Documents/Github/FTravel/public/js/components",
+			"/Users/xujie/Documents/Github/FTravel/public/js",
+			"/Users/xujie/Documents/Github/FTravel/routes",
+			"/Users/xujie/Documents/Github/FTravel/services",
+			"/Users/xujie/Documents/Github/FTravel/util",
+			"/Users/xujie/Documents/Github/FTravel/services",
+			"/Users/xujie/Documents/Github/FTravel",
 			"/Users/xujie/Documents/Github/FTravel/public/js",
 			"/Users/xujie/Documents/Github/FTravel/routes",
 			"/Users/xujie/Documents/Github/FTravel/public/js/components",
@@ -816,6 +781,22 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"es6",
+			"get",
+			"env",
+			"NODE_ENV",
+			"ReactCSSTransitionGroup",
+			"transitionEnterTimeout",
+			"\\t",
+			"45",
+			"4",
+			"__webpack_require__",
+			"require",
+			"module.exports",
+			"__webpack_require__",
+			"require",
+			"PureRenderMixin",
+			"Promise",
 			"clientSide",
 			");\n",
 			"localStorage",
@@ -927,30 +908,15 @@
 			"link",
 			"element",
 			"_chosen",
-			"_chosenRoomId",
-			"updateChosenOne",
-			"_data",
-			"updateChosenOne",
-			"_chosen",
-			"event",
-			"$broadcast",
-			"className",
-			"size",
-			"hotelId",
-			"exports",
-			"require",
-			"defined",
-			"script",
-			"elems",
-			"initValidate",
-			"手机"
+			"_chosenRoomId"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
+			"  ",
 			"ease-in-out",
 			".3s",
 			"left",
@@ -981,7 +947,7 @@
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": false,
+		"whole_word": true,
 		"wrap": true
 	},
 	"groups":
@@ -992,24 +958,25 @@
 			[
 				{
 					"buffer": 0,
-					"file": "app.js",
+					"file": "public/js/libs/RouteManager.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1100,
+						"buffer_size": 2140,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								250,
-								250
+								26,
+								26
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1020,25 +987,26 @@
 				},
 				{
 					"buffer": 1,
-					"file": "routes/package.js",
+					"file": "public/js/components/PackagePage.jsx",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1852,
+						"buffer_size": 474,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1474,
-								1474
+								21,
+								21
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1049,134 +1017,19 @@
 				},
 				{
 					"buffer": 2,
-					"file": "README.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1056,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								717,
-								717
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "blogs/Under the hood.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2469,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1796,
-								1796
-							]
-						],
-						"settings":
-						{
-							"auto_name": "# Under the hood",
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "public/js/stores/Store.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1880,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								944,
-								944
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 472.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "public/js/stores/Storage.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1686,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1686,
-								1686
-							]
-						],
-						"settings":
-						{
-							"auto_name": "",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
 					"file": "package.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1257,
+						"buffer_size": 1402,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								403,
-								403
+								1402,
+								1402
 							]
 						],
 						"settings":
@@ -1186,124 +1039,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3.0,
+						"translation.y": 307.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "util/fetch.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3665,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2504,
-								2504
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1537.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "public/js/components/Product.jsx",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 753,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								314,
-								314
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "public/js/components/ListPage.jsx",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1981,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								446,
-								449
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "services/flight.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1695,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								195,
-								195
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1358,6 +1097,14 @@
 		"selected_items":
 		[
 			[
+				"",
+				"package.json"
+			],
+			[
+				"bund",
+				"public/assets/bundle.js"
+			],
+			[
 				"package.jo",
 				"package.json"
 			],
@@ -1388,22 +1135,18 @@
 			[
 				"common.le",
 				"public/css/common.less"
-			],
-			[
-				"",
-				"util/fetch.js"
 			]
 		],
 		"width": 0.0
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"last_filter": "",
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"select_symbol":
 	{
