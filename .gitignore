@@ -27,8 +27,9 @@ build/Release
 node_modules
 
 # Sublime project
-FreeTravel.sublime-project
-FreeTravel.sublime-workspace
+*.sublime-project
+*.sublime-workspace
 
 # Preparation directory
 other
+public/assets
