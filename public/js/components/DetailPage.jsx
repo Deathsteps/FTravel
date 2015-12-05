@@ -5,74 +5,67 @@ var Header = require('./Header');
 var ProductStore = require('../stores/ProductStore');
 var PageHelper = require('../libs/PageHelper');
 
-var DetailPage = React.createClass({
-	statics: {
-		fetchInitialData: function (params) {
-			return new Promise(function (resolve, reject) {
-				ProductStore.findOne({ProductID: +params.id})
-					.then( (res) => resolve({key: ProductStore.DETAIL_CHACHE_KEY, content: res.text()}) );
-			});
-		}
-	},
+class DetailPage extends React.Component {
+	static fetchInitialData (params) {
+		return new Promise(function (resolve, reject) {
+			ProductStore.findOne({ProductID: +params.id})
+				.then( (res) => resolve({key: ProductStore.DETAIL_CHACHE_KEY, content: res.text()}) );
+		});
+	}
 
-	getInitialState: function () {
-		return {
-			productData: ProductStore.findOne({ProductID: +this.props.params.id}, true)
+	constructor (props) {
+		super(props);
+		this.state = {
+			productData: ProductStore.findOne({ProductID: +props.params.id}, true)
 		};
-	},
+		this._onDetailFetched = (data) => this.setState({ productData: data });
+		this._onStartBooking = () => PageHelper.forward('/route/'+this.props.params.id);
+	}
 
-	componentDidMount: function() {
+	componentDidMount() {
 		ProductStore.on('detail-fetched', this._onDetailFetched);
 		!this.state.productData && ProductStore.findOne({ProductID: +this.props.params.id});
 
 		Header.set({ title: 'Detail' });
-	},
+	}
 
-	componentWillUnmount: function () {
+	componentWillUnmount() {
 		ProductStore.off('detail-fetched', this._onDetailFetched);
 		window.scrollTo(0, 0);
-	},
+	}
 
-	_onDetailFetched: function (data) {
-		this.setState({ productData: data });
-	},
-
-	_onStartBooking: function () {
-		PageHelper.forward('/route/'+this.props.params.id);
-	},
-
-	_renderFrees: function (productData) {
+	_renderFrees(productData) {
 		if(productData.Frees && productData.Frees.length){
 			return (
-				<div className="frees">
+					<div className="frees">
 				    <i className="tab_red">赠送</i>
 				    {productData.Frees.map( (item) => { 
 				     	return (<p>{item.Name}</p>);
 				    })}
-				</div>
-			);
+					</div>
+				);
 		}
-	},
+	}
 
-	_renderRecommends: function (productData) {
+	_renderRecommends(productData) {
 		if(productData.AdditionalInfos){
 			var recommendData = _.find(productData.AdditionalInfos, {Type: 1});
 			if(recommendData)
 				return (
-					<div className="info">
-					  <h3>{recommendData.Title}</h3>
-					  <ul className="info_list">
-					  	{recommendData.Notifies[0].Description.map( (item) => {
-					  		// insert raw html
-					  		return (<li dangerouslySetInnerHTML={{__html: item}}></li>);
-					  	})}
-					  </ul>
-					</div>
-				);
+						<div className="info">
+						  <h3>{recommendData.Title}</h3>
+						  <ul className="info_list">
+						  	{recommendData.Notifies[0].Description.map( (item) => {
+						  		// insert raw html
+						  		return (<li dangerouslySetInnerHTML={{__html: item}}></li>);
+						  	})}
+						  </ul>
+						</div>
+					);
 		}
-	},
+	}
 
-	_renderFees: function (productData) {
+	_renderFees(productData) {
 		if(productData.AdditionalInfos){
 			var feeData = _.find(productData.AdditionalInfos, {Type: 3});
 			if(feeData){
@@ -83,20 +76,20 @@ var DetailPage = React.createClass({
 						return prev.concat(curent);
 					}, []);
 				return (
-					<div className="info">
-					  <h3>{feeTitle}</h3>
-					  <ul className="info_list">
-					  	{feeData.map( (item) => {
-					  		return (<li>{item}</li>);
-					  	})}
-					  </ul>
-					</div>	
-				);
+						<div className="info">
+						  <h3>{feeTitle}</h3>
+						  <ul className="info_list">
+						  	{feeData.map( (item) => {
+						  		return (<li>{item}</li>);
+						  	})}
+						  </ul>
+						</div>	
+					);
 			}
 		}
-	},
+	}
 
-	render: function () {
+	render() {
 		var productData = this.state.productData;
 		if(productData){
 
@@ -105,34 +98,34 @@ var DetailPage = React.createClass({
 			var fees = this._renderFees(productData);
 
 			return (
-				<div className="detail_page">
-				  <div className="img">
-				    <img src={productData.Images[0].LargeUrl} />
-				  </div>
-				  <h1>{productData.ProductName}</h1>
-				  <div className="tags">
-				    <span className="price">
-				      <dfn>&yen;</dfn>{productData.Price.Current}
-				    </span>
-				    起/人
-				  </div>
-				  {frees}
-				  {recommends}
-				  {fees}
-				  <div className="book footer_bar">
-				    <button className="collect btn">收藏</button>
-				    <button className="start_book btn" onClick={this._onStartBooking}>立即预订</button>
-				  </div>
-				</div>
-			);
+					<div className="detail_page">
+					  <div className="img">
+					    <img src={productData.Images[0].LargeUrl} />
+					  </div>
+					  <h1>{productData.ProductName}</h1>
+					  <div className="tags">
+					    <span className="price">
+					      <dfn>&yen;</dfn>{productData.Price.Current}
+					    </span>
+					    起/人
+					  </div>
+					  {frees}
+					  {recommends}
+					  {fees}
+					  <div className="book footer_bar">
+					    <button className="collect btn">收藏</button>
+					    <button className="start_book btn" onClick={this._onStartBooking}>立即预订</button>
+					  </div>
+					</div>
+				);
 		}else{
 			return (
-				<div className="detail_page">
-				  Loading......
-				</div>
-			);
+					<div className="detail_page">
+					  Loading......
+					</div>
+				);
 		}
 	}
-});
+}
 
 module.exports = DetailPage;

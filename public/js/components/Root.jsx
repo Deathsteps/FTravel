@@ -1,54 +1,57 @@
+// import React from 'react';
+// import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+// import RouteManager from '../libs/RouteManager';
 var React = require('react');
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
-
 var RouteManager = require('../libs/RouteManager');
 
-var Root = React.createClass({
+class Root extends React.Component {
 
-	statics: {
-		// Get initial data for server side rendering
-		fetchInitialData: function (path) {
-			var route = RouteManager.match(path);
+	// Get initial data for server side rendering
+	static fetchInitialData(path) {
+		var route = RouteManager.match(path);
 
-			if(route.component){
-				return route.component.fetchInitialData(route.params);
-			}else{
-				return Promise.resolve({});
-			}
-
+		if(route.component){
+			return route.component.fetchInitialData(route.params);
+		}else{
+			return Promise.resolve({});
 		}
-	},
+	}
 
-	getInitialState: function () {
-		return {
+	constructor(props) {
+    super(props);
+    // set state
+    this.state = {
 			path: RouteManager.defaultPath
 		};
-	},
+		// deal with this
+		this.setPath = (path) => this.setState({ path: path });
+  }
 
-	componentDidMount: function () {
+	componentDidMount() {
 		RouteManager.on('route-changed', this.setPath);
-	},
+	}
 
-	componentWillUnmount: function () {
+	componentWillUnmount() {
 		RouteManager.off('route-changed', this.setPath);
-	},
+	}
 
-	render: function () {
+	render() {
 		var path = this.state.path;
 		var route = RouteManager.match(path);
 		var page = React.createElement(route.component, {params: route.params, key: route.key});
 		return (
-			<ReactCSSTransitionGroup transitionName="page" component="div" className="animated_pages" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
-				{page}
-			</ReactCSSTransitionGroup>
-		);
-	},
-
-	setPath: function (path) {
-		this.setState({
-			path: path
-		});
+				<ReactCSSTransitionGroup 
+					className="animated_pages"
+					component="div"
+					transitionEnterTimeout={500}
+					transitionLeaveTimeout={300}
+					transitionName="page"
+				>
+					{page}
+				</ReactCSSTransitionGroup>
+			);
 	}
-});
+}
 
 module.exports = Root;

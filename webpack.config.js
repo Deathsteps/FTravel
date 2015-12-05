@@ -12,8 +12,13 @@ module.exports = {
   },
   module: {
     loaders: [{
-      test: /\.jsx$/,
-      loader: "jsx-loader?harmony"
+      test: /\.jsx?$/,
+      loader: "babel",
+      exclude: /node_modules/,
+      query: {
+        presets: ['react', 'es2015'],
+        cacheDirectory: true
+      }
     },{
       test: /\.css$/,
       loader: "css-loader"

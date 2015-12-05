@@ -1,5 +1,6 @@
 var React = require("react");
 var ReactDOM = require('react-dom');
+var ReactDOMServer = require('react-dom/server');
 
 var Root         = require("./components/Root");
 var RouteManager = require('./libs/RouteManager');
@@ -31,7 +32,7 @@ if(typeof window !== 'undefined'){
 
 			var model = {
 				title: 'Page',
-				body: React.renderToString(React.createFactory(Root)()),
+				body: ReactDOMServer.renderToString(React.createFactory(Root)()),
 				data: data
 			};
 

@@ -5,10 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-require("node-jsx").install({
-  harmony: true,
-  extension: ".jsx"
-});
+require("babel-core/register");
 
 var app = express();
 

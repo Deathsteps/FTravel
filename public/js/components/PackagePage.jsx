@@ -4,27 +4,16 @@ var _ = require('lodash');
 var Header = require('./Header');
 var PageHelper = require('../libs/PageHelper');
 
-var DetailPage = React.createClass({
-  statics: {
-    fetchInitialData: function (params) {
-      return Promise.resolve({key: 'NONE'});
-    }
-  },
+class DetailPage extends React.Component {
+  static fetchInitialData(params) {
+    return Promise.resolve({key: 'NONE'});
+  }
 
-  getInitialState: function () {
-    return {
-      
-    };
-  },
+  constructor(props){
+    super(props);
+  }
 
-  componentDidMount: function() {
-  },
-
-  componentWillUnmount: function () {
-
-  },
-
-  render: function () {
+  render() {
 
   }
-});
+}

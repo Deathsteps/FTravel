@@ -7,11 +7,11 @@ var NotFoundPage = React.createClass({
   render: function () {
   	var data = this.props.data;
     return (
-			<div>
-				<h1 style="color:red;">Page Not Found</h1>
-				<p>"Not Found the target page, please check the address or return home page."</p>
-			</div>
-		);
+				<div>
+					<h1 style="color:red;">Page Not Found</h1>
+					<p>"Not Found the target page, please check the address or return home page."</p>
+				</div>
+			);
   }
 });
 

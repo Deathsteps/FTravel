@@ -61,53 +61,53 @@ function calendarData (calendarDates, year, month) {
 	});
 }
 
-var Calendar = React.createClass({
-	getInitialState: function () {
-		var year = this.props.year;
-		var month = this.props.month;
+class Calendar extends React.Component {
+	constructor(props) {
+		super(props);
 
+		var year = props.year, month = props.month;
 		var data = calendarData(calendar(year, month), year, month);
 		_.forEach(data, (item) => {
 			var extraData = 
-				_.find(this.props.extraData, (d) => {
+				_.find(props.extraData, (d) => {
 					return +moment(d.Date).toDate() === +item.date;
 				});
 			_.extend(item, extraData);
 		});
 
-		return {
+		this.state = {
 			data: data
-		};
-	},
+		}
+	}
 
-	componentDidMount: function () {
+	componentDidMount() {
 		
-	},
+	}
 
-	componentWillUnmount: function () {
+	componentWillUnmount() {
 		
-	},
+	}
 
-	render: function () {
+	render() {
 		// To do:
 		// If the dayComponent is not given, a default one should be provided.
 
 		return (
-		<div className="calendar">
-			<ul className="weekday">
-			  <li>日</li><li>一</li><li>二</li><li>三</li><li>四</li><li>五</li><li>六</li>
-			</ul>
-			<div className="title">
-				<span>{this.props.year + '年' + (this.props.month+1) + '月'}</span>
-			</div>
-			<ul className="days">
-			  {this.state.data.map((item)=>{
-			  	return React.createElement(this.props.dayComponent, {data: item});
-			  })}
-			</ul>
-		</div>
-        );
+				<div className="calendar">
+					<ul className="weekday">
+					  <li>日</li><li>一</li><li>二</li><li>三</li><li>四</li><li>五</li><li>六</li>
+					</ul>
+					<div className="title">
+						<span>{this.props.year + '年' + (this.props.month+1) + '月'}</span>
+					</div>
+					<ul className="days">
+					  {this.state.data.map((item)=>{
+					  	return React.createElement(this.props.dayComponent, {data: item});
+					  })}
+					</ul>
+				</div>
+	    );
 	}
-});
+}
 
 module.exports = Calendar;

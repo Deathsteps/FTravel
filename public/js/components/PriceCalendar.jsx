@@ -26,49 +26,44 @@ function calendarInfos (dateRange) {
 	return ret;
 }
 
-var CalendarDay = React.createClass({
-	render: function () {
-		var data = this.props.data;
-		var now = Date.now();
+var CalendarDay = (props) => {
+	var data = props.data;
+	var now = Date.now();
 
-		if(!data.belongToThisMonth){
-			return (<li></li>);
-		}else if(!data.MinPrice){
-			return (<li><em className="disable">{data.content}</em></li>);
-		}else{
-			return (<li><em>{data.content}<i>&yen;{data.MinPrice.Current}</i></em></li>);
-		}
+	if(!data.belongToThisMonth){
+		return (<li></li>);
+	}else if(!data.MinPrice){
+		return (<li><em className="disable">{data.content}</em></li>);
+	}else{
+		return (<li><em>{data.content}<i>&yen;{data.MinPrice.Current}</i></em></li>);
 	}
-});
+}
 
-var PriceCalendar = React.createClass({
+class PriceCalendar extends React.Component {
 
-	getInitialState: function () {
+	constructor(props){
+		super(props);
+
 		var data = 
-			PriceStore.find({ProductID: this.props.productId, 
-				DateRange: this.props.range}, true);
-		return {
+			PriceStore.find({ProductID: props.productId, DateRange: props.range}, true);
+		this.state = {
 			data: data ? data.Prices : null,
-			calendars: calendarInfos(this.props.range)
-		}
-	},
+			calendars: calendarInfos(props.range)
+		};
 
-	componentDidMount: function () {
+		this._onPriceFetched = (data) => this.setState({data: data.Prices});
+	}
+
+	componentDidMount() {
 		PriceStore.on('price-fetched', this._onPriceFetched);
 		if(!this.state.data)
 			PriceStore.find({ProductID: this.props.productId, 
 				DateRange: this.props.range});
-	},
+	}
 
-	componentWillUnmount: function () {
+	componentWillUnmount() {
 		PriceStore.off('price-fetched', this._onPriceFetched);
-	},
-
-	_onPriceFetched: function (data) {
-		this.setState({
-			data: data.Prices
-		});
-	},
+	}
 
 	// // manipulate DOM to switch calendars in an animate way
 	// // switch to prev month
@@ -83,25 +78,25 @@ var PriceCalendar = React.createClass({
 	// 	React.findDOMNode(this.refs["calendar" + this._showIndex]).style.left = 0;
 	// },
 
-	render: function () {
+	render() {
 		if(this.state.data){
 			return (
-				<div className="calendar_container">
-					{this.state.calendars.map((item, i) => {
-					return (
-						<Calendar ref={"calendar" + i}
-							dayComponent={CalendarDay} 
-							extraData={this.state.data}
-							year={item.year}
-							month={item.month}>
-						</Calendar>	
-					);
-					})}
-				</div>
-			);
+					<div className="calendar_container">
+						{this.state.calendars.map((item, i) => {
+						return (
+							<Calendar ref={"calendar" + i}
+								dayComponent={CalendarDay} 
+								extraData={this.state.data}
+								year={item.year}
+								month={item.month}>
+							</Calendar>	
+						);
+						})}
+					</div>
+				);
 		}else
 			return (<strong>Loading......</strong>);
 	}
-});
+}
 
 module.exports = PriceCalendar;
