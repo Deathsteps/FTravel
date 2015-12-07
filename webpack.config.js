@@ -17,7 +17,7 @@ module.exports = {
       exclude: /node_modules/,
       query: {
         presets: ['react', 'es2015'],
-        cacheDirectory: true
+        cacheDirectory: false
       }
     },{
       test: /\.css$/,
