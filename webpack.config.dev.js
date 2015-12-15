@@ -5,19 +5,18 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
   context: path.join(__dirname, "public", "js"),
   entry: [
-    "webpack-dev-server/client?http://localhost:9000", 
-    "webpack/hot/dev-server",
+    "webpack-hot-middleware/client",
     "app"
   ],
   output: {
-    publicPath: "http://localhost:9000/",
+    publicPath: "/assets/",
     path: path.join(__dirname, "public", "assets"),
     filename: "bundle.js"
   },
   module: {
     loaders: [{
       test: /\.jsx?$/,
-      loader: "react-hot!jsx?harmony",
+      loader: 'babel',
       exclude: /node_modules/
     },{
       test: /\.css$/,
