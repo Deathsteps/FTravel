@@ -1,10 +1,9 @@
-var React = require('react');
-var _ = require('lodash');
+import React, {Component} from 'react';
+import _ from 'lodash';
+import {setHeader} from './Header';
+import PageHelper from '../libs/PageHelper';
 
-var Header = require('./Header');
-var PageHelper = require('../libs/PageHelper');
-
-class DetailPage extends React.Component {
+export default class DetailPage extends Component {
   static fetchInitialData(params) {
     return Promise.resolve({key: 'NONE'});
   }

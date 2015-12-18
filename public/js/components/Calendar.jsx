@@ -1,6 +1,6 @@
-var _ = require('lodash');
-var moment = require('moment');
-var React = require('react');
+import _ from 'lodash';
+import moment from 'moment';
+import React, {Component} from 'react';
 
 var DATE = {
 	TODAY: '今天',
@@ -61,7 +61,7 @@ function calendarData (calendarDates, year, month) {
 	});
 }
 
-class Calendar extends React.Component {
+export default class Calendar extends Component {
 	constructor(props) {
 		super(props);
 
@@ -109,5 +109,3 @@ class Calendar extends React.Component {
 	    );
 	}
 }
-
-module.exports = Calendar;

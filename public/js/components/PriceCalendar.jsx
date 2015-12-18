@@ -1,8 +1,7 @@
-var React = require('react');
-var moment = require('moment');
-
-var PriceStore = require('../stores/PriceStore');
-var Calendar = require('./Calendar');
+import React, {Component} from 'react';
+import moment from 'moment';
+import PriceStore from '../stores/PriceStore';
+import Calendar from './Calendar';
 
 function calendarInfos (dateRange) {
 	var date = moment(dateRange.Start);
@@ -39,7 +38,7 @@ var CalendarDay = (props) => {
 	}
 }
 
-class PriceCalendar extends React.Component {
+export default class PriceCalendar extends Component {
 
 	constructor(props){
 		super(props);
@@ -98,5 +97,3 @@ class PriceCalendar extends React.Component {
 			return (<strong>Loading......</strong>);
 	}
 }
-
-module.exports = PriceCalendar;

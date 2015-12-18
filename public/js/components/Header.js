@@ -1,5 +1,4 @@
-
-var PageHelper = require('../libs/PageHelper');
+import PageHelper from '../libs/PageHelper';
 
 var _el;
 
@@ -10,11 +9,9 @@ function init () {
 	lnkBack.addEventListener('click', PageHelper.backward);
 }
 
-function set (opts) {
+export function setHeader (opts) {
 	if(!_el) init();
 	// set title
 	if(opts.title)
 		_el.querySelector('h1').innerHTML = opts.title;
 }
-
-exports.set = set;

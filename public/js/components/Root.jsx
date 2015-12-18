@@ -1,11 +1,8 @@
-// import React from 'react';
-// import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-// import RouteManager from '../libs/RouteManager';
-var React = require('react');
-var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
-var RouteManager = require('../libs/RouteManager');
+import React, {Component}      from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import RouteManager            from '../libs/RouteManager';
 
-class Root extends React.Component {
+export default class Root extends Component {
 
 	// Get initial data for server side rendering
 	static fetchInitialData(path) {
@@ -53,5 +50,3 @@ class Root extends React.Component {
 			);
 	}
 }
-
-module.exports = Root;

@@ -1,13 +1,13 @@
-var React = require("react");
-var ReactDOM = require('react-dom');
-var ReactDOMServer = require('react-dom/server');
+import React          from "react";
+import ReactDOM       from 'react-dom';
+import ReactDOMServer from 'react-dom/server';
 
-var Root         = require("./components/Root");
-var RouteManager = require('./libs/RouteManager');
-var NotFoundPage = require('./components/NotFoundPage');
-var ListPage     = require('./components/ListPage');
-var DetailPage   = require('./components/DetailPage');
-var RoutePage    = require('./components/RoutePage');
+import Root 				from "./components/Root";
+import RouteManager from './libs/RouteManager';
+import NotFoundPage from './components/NotFoundPage';
+import ListPage     from './components/ListPage';
+import DetailPage   from './components/DetailPage';
+import RoutePage    from './components/RoutePage';
 
 RouteManager.register(NotFoundPage);
 RouteManager.register('/product', ListPage);
@@ -27,6 +27,8 @@ if(typeof window !== 'undefined'){
 	// Server Side
 	// initializing function
 	module.exports = function (path, callback) {
+		console.log(Root);
+		console.log(Root.fetchInitialData);
 		Root.fetchInitialData(path).then(function (data) {
 			RouteManager.defaultPath = path;
 

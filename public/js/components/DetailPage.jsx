@@ -1,11 +1,10 @@
-var React = require('react');
-var _ = require('lodash');
+import React, {Component} from 'react';
+import _ from 'lodash';
+import {setHeader} from './Header';
+import ProductStore from '../stores/ProductStore';
+import PageHelper from '../libs/PageHelper';
 
-var Header = require('./Header');
-var ProductStore = require('../stores/ProductStore');
-var PageHelper = require('../libs/PageHelper');
-
-class DetailPage extends React.Component {
+export default class DetailPage extends Component {
 	static fetchInitialData (params) {
 		return new Promise(function (resolve, reject) {
 			ProductStore.findOne({ProductID: +params.id})
@@ -26,7 +25,7 @@ class DetailPage extends React.Component {
 		ProductStore.on('detail-fetched', this._onDetailFetched);
 		!this.state.productData && ProductStore.findOne({ProductID: +this.props.params.id});
 
-		Header.set({ title: 'Detail' });
+		setHeader({ title: 'Detail' });
 	}
 
 	componentWillUnmount() {
@@ -127,5 +126,3 @@ class DetailPage extends React.Component {
 		}
 	}
 }
-
-module.exports = DetailPage;

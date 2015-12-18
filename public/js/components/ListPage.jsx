@@ -1,10 +1,9 @@
-var React = require('react');
+import React, {Component} from 'react';
+import {setHeader} from './Header';
+import Product from './Product';
+import ProductStore from '../stores/ProductStore';
 
-var Header = require('./Header');
-var Product = require('./Product');
-var ProductStore = require('../stores/ProductStore');
-
-class ListPage extends React.Component {
+export default class ListPage extends Component {
 
 	// Get initial data for server side rendering
 	static fetchInitialData () {
@@ -26,7 +25,7 @@ class ListPage extends React.Component {
 		ProductStore.on('list-fetched', this._onProductsFetched);
 		!this.state.data && ProductStore.findByPage({PageIndex: 1});
 		
-		Header.set({ title: 'List' });
+		setHeader({ title: 'List' });
 	}
 
 	componentWillUnmount() {
@@ -66,5 +65,3 @@ class ListPage extends React.Component {
   	}
   }
 }
-
-module.exports = ListPage;

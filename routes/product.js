@@ -1,11 +1,6 @@
 var express = require('express');
 var React = require('react');
 
-require("node-jsx").install({
-  harmony: true,
-  extension: ".jsx"
-});
-
 var productService = require('../services/product');
 
 var router = express.Router();

@@ -1,6 +1,5 @@
-var React = require('react');
-
-var PageHelper = require('../libs/PageHelper');
+import React from 'react';
+import PageHelper from '../libs/PageHelper';
 
 var Product = ({data}) => (
   <div 

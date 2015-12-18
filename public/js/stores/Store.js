@@ -7,8 +7,6 @@ var fetch = require('../../../util/fetch');
 
 var IS_CLIENT = typeof window !== 'undefined';
 
-
-
 var Store = _.assign({}, EventEmitter.prototype, {
 
 	CACHE_KEY: '',

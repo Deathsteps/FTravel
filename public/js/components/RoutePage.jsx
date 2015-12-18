@@ -1,17 +1,16 @@
-var React = require('react');
-var _ = require('lodash');
+import React, {Component} from 'react';
+import _ from 'lodash';
+import {setHeader} from './Header';
+import PageHelper from '../libs/PageHelper';
+import PriceCalendar from './PriceCalendar';
 
-var Header = require('./Header');
-var PageHelper = require('../libs/PageHelper');
-var PriceCalendar = require('./PriceCalendar');
-
-class RoutePage extends React.Component {
+export default class RoutePage extends Component {
 	static fetchInitialData(params) {
 		return Promise.resolve({key: 'NONE'});
 	}
 
 	componentDidMount() {
-		Header.set({ title: 'Route' });
+		setHeader({ title: 'Route' });
 	}
 
 	componentWillUnmount() {
@@ -41,5 +40,3 @@ class RoutePage extends React.Component {
 			);
 	}
 }
-
-module.exports = RoutePage;
